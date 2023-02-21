@@ -29,7 +29,7 @@ const p1 = new Persona("username");
 class n3e1 {constructor(){}}
 
 function newobjects(){
-
-}
 // ToDo
+}
+
 
