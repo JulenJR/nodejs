@@ -8,8 +8,8 @@
 const cPersona = (atribute) => ({
     name: "username", atribute,
 });
-console.log("n2e1 --->")
-console.log(cPersona("atribute"));
+console.log("n2e1 ---v   ");
+console.log(cPersona(" atribute"));
 
 
 //nivell 2 exercici 2
@@ -26,10 +26,31 @@ const p1 = new Persona("username");
 
 //nivell 3 execici 1
 
-class n3e1 {constructor(){}}
+class PersonaAbstract{
+    constructor(nom, edad, altura) {
+        if (new.target === PersonaAbstract) {
+            throw new Error("Abstract classes can't be instantiated");
+        }       
 
-function newobjects(){
-// ToDo
+        this.nom = nom;
+        this.edad = edad;
+        this.altura = altura;
+    }
 }
 
+function crearpersona(nom, edad, altura) {
+   
+    return Object.create(PersonaAbstract.prototype, {
+		"nom" : {value: nom},
+		"edad": {value: edad},
+		"altura": {value: altura}
+	    }
+    );
+}
 
+const per1 = crearpersona("n3e1 --->   username1", 21, "155");
+
+console.log(per1);
+
+
+//https://stackoverflow.com/questions/597769/how-do-i-create-an-abstract-base-class-in-javascript

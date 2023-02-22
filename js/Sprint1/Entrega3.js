@@ -104,7 +104,7 @@ getSalary(1).then((res)   => {console.log(`n2e2 --->    empleat amb id ${res.id}
 //nivell 2 exercici 3
 
 
-getEmployee(3).then((empl) => {getSalary(empl).then(salary => {console.log(`empleat amb id ${empl.id} es diu ${empl.name} i te un salari de ${salary.salary}`);})})
+getEmployee(5).then((empl) => {getSalary(empl).then(salary => {console.log(`empleat amb id ${empl.id} es diu ${empl.name} i te un salari de ${salary.salary}`);})})
               .catch((err) => {console.log(err.message);});
 
 /*
