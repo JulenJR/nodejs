@@ -1,4 +1,5 @@
 //Nivell 1 exercici 1
+//Crea una funció que mostri per consola el nom d'usuari/ària en invocar-la passant-li el nom com a paràmetre.
 
     let nom = "name";
 
@@ -6,6 +7,7 @@
 
 
 //Nivell 2 exercici 1
+//Mostra per consola el nom i cognoms de l'usuari/ària mitjançant template literals, guardant-los en variables i referenciant-les en la impressió del missatge.
 
     let tempcognom = "lastname lastname2";
 
@@ -19,6 +21,7 @@
     
 
 //Nivell 2 exercici 2
+//Invoca una funció que retorni un valor des de dins d'una template literal.
 
 
 let numero = `La suma del valor X i el valor Y es: ${suma()}`;
@@ -35,6 +38,8 @@ function suma() {
 
 
 //Nivell 3 exercici 1
+//Crea una matriu de deu funcions i emplena-la mitjançant un bucle de manera que cada funció compti del 0 al 9 per la consola.
+//Invoca cada funció de l'array iterativament. Haurà de mostrar-se per consola el compte del 0 al 9 deu vegades.
 
 let array =[];
 
@@ -43,7 +48,6 @@ for (let i = 0; i <= 9; i++) {
     array.push(function () {
         for (j = 0; j <= 9; j++) {
             console.log(j);
-
         }
     })
 }
@@ -58,5 +62,6 @@ for (let j = 0; j < array.length; j++) {
 
 
 //nivell 3 exercici 2
+//Crea una funció anònima autoinvocable igualada a una variable que mostri per consola el nom de l'usuari/ària a rebut com a paràmetre.
 
-nom = function(name){console.log(name);}("name");
+let nom3 = function(name){console.log(name);}("name");
