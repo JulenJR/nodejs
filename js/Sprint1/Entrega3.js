@@ -104,13 +104,13 @@ getSalary(1).then((res)   => {console.log(`n2e2 --->    empleat amb id ${res.id}
 //nivell 2 exercici 3
 
 
+getEmployee(7).then((res)  => {console.log(`n2e3 --->    empleat amb id ${res.id} es diu ${res.name} i te un salari de ${getSalary(res).salary}`);})
+              .catch((err) => {console.log(err.message);});
+ //Error
+
+//nivell 3 exercici 1
+
 getEmployee(5).then((empl) => {getSalary(empl).then(salary => {console.log(`empleat amb id ${empl.id} es diu ${empl.name} i te un salari de ${salary.salary}`);})})
               .catch((err) => {console.log(err.message);});
 
-/*
-getEmployee(3).then(res => { 
-      getSalary(res).then(salary => {
-                console.log(`${res.name} te un salari de ${salary.salary}`);
-              });})
-              .catch(err => {console.log(err.message);});
-*/
+
