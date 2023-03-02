@@ -28,10 +28,10 @@ function readtxt(file) {
     }
   );
 
-  console.log(txt);
+  return txt;
 }
 
-readtxt("./fitxer.txt");
+console.log(readtxt("./fitxer.txt"));
 
 //nivell 1 exercici 2
 //Crea una funció que comprimeixi el fitxer del nivell 1.
@@ -46,7 +46,7 @@ const destination = createWriteStream("./fitxer.txt.gz");
 
 pipeline(source, gzip, destination, (err) => {
   if (err) {
-    console.error("An error occurred:", err);
+    console.error("Error:", err);
     process.exitCode = 1;
   }
 });
@@ -72,33 +72,56 @@ function dirFileInfo() {
   const userHomeDir = os.homedir();
 
   let files = fs.readdirSync(userHomeDir);
-  for (let i = 0; i < files.length; i++) {
-    console.log(files[i]);
-  }
+  for (let i = 0; i < files.length; i++) console.log(files[i]);
 }
 
-dirFileInfo();
+//dirFileInfo();
 
 //nivell 3 exercici 1
 //Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, a partir del fitxer del nivell 1.
 
-function encryptedFile(fitxer) {
-  const crypto = require("crypto");
+function encryptedFileHexB64() {
+
+  let fs = require("fs");
+  let txt = frase;
+  let txtHex = Buffer.from(txt, "utf8").toString("hex");
+
+  let txtb64 = Buffer.from(txt, "utf8").toString("base64");
+  
+  fs.writeFile("fitxerHex", txtHex, function (err) {
+    if (err) return console.log(err);
+  });
+
+  fs.writeFile("fitxerb64", txtb64, function (err) {
+    if (err) return console.log(err);
+  })
+}
+
+encryptedFileHexB64();
+
+//Crea una funció que guardi els fitxers del punt anterior,
+//ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
+
+/*const crypto = require("crypto");
   const algorithm = "aes-256-cbc";
   const initVector = crypto.randomBytes(16);
   const securityKey = crypto.randomBytes(32);
   const cipher = crypto.createCipheriv(algorithm, securityKey, initVector);
 
-  let encryptedHexData = cipher.update(fitxer, "utf-8", "hex");
+  let encryptedHexData = cipher.update(frase, "utf-8", "hex");
 
   encryptedHexData += cipher.final("hex");
 
+  let codedb64 = btoa(frase);
+
   let fs = require("fs");
-  fs.writeFile(fitxer, encryptedHexData, function (err) {
+  fs.writeFile("fitxerHex", encryptedHexData, function (err) {
     if (err) return console.log(err);
   });
 
+  fs.writeFile("fitxerb64", codedb64, function (err) {
+    if (err) return console.log(err);
+  });*/
 
-}
-
-encryptedFile("fitxerEncriptat");
+//Crea una altra funció que desencripti i descodifiqui 
+//els fitxers de l'apartat anterior tornant a generar una còpia de l'inicial.

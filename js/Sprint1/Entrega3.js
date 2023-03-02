@@ -97,7 +97,9 @@ const getSalary = (id) => {
 getSalary(1)
   .then((res) => {
     console.log(
-      `n2e2 --->    empleat amb id ${res.id} te un salari de ${getSalary(res.id).salary}`
+      `n2e2 --->    empleat amb id ${res.id} te un salari de ${
+        getSalary(res.id).salary
+      }`
     );
   })
   .catch((err) => {
