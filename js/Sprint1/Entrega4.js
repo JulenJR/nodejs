@@ -119,3 +119,6 @@ doubleOf(1, 2, 3);
 
 //nivell 3 exercici 1
 //Força i captura tants errors com puguis dels nivells 1 i 2.
+
+//-A les funcions se li pot pasar nomes com a parametre nombres enters i no decimals o Strings.
+//-La funció "doubleOF()" compta el segon per cada parametre que se li pasa, sent aixi 6 segonsen comptes d'1.
