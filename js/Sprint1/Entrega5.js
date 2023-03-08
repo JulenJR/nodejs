@@ -27,11 +27,10 @@ function readtxt(file) {
       else console.log(data);
     }
   );
-
   return txt;
 }
 
-//console.log(readtxt("./fitxer.txt"));
+console.log(readtxt("./fitxer.txt"));
 
 //nivell 1 exercici 2
 //Crea una funció que comprimeixi el fitxer del nivell 1.
@@ -140,25 +139,27 @@ Promise.all(files.map((file) => fs.unlink(file))).catch((err) => {
 //els fitxers de l'apartat anterior tornant a generar una còpia de l'inicial.
 
 function decrypt(fileName) {
-  const crypto = require('crypto');
-  const fs = require('fs');
+  const crypto = require("crypto");
+  const fs = require("fs");
 
-  const algorithm = 'aes-192-cbc';
-  const key = crypto.scryptSync(password, 'GfG', 24);
+  const algorithm = "aes-192-cbc";
+  const key = crypto.scryptSync(password, "GfG", 24);
   const iv = Buffer.alloc(16, 0);
 
   let encryptedString = readtxt(fileName);
   const decipher = crypto.createDecipheriv(algorithm, key, iv);
-  try {
-    let decryptedString = decipher.update(encryptedString, 'hex', 'utf8');
-    decryptedString += decipher.final('utf8');
 
-    let finalFileName = 'decrypted' + fileName;
+  try {
+    let decryptedString = decipher.update(encryptedString, "hex", "utf8");//undefined (?)
+    decryptedString += decipher.final("utf8");
+
+    let finalFileName = "decrypted" + fileName;
 
     fs.writeFileSync(finalFileName, decryptedString);
+    console.log(`file ${finalFileName} decrypted from ${fileName}`);
   } catch (error) {
     console.error(error);
   }
 }
 
-decrypt("./EncryptedfitxerHex.txt");
+//decrypt("./EncryptedfitxerHex.txt");//Error
