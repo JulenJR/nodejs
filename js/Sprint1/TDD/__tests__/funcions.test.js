@@ -6,7 +6,7 @@ const {
 } = require('../app/funcions.js');
 
 
-describe('Operacions Suma, Resta, Multiplicar i Dividir siguin correctes', () => {
+describe('Operacions Suma, Resta, Multiplicar i Dividir correctes', () => {
 
   test('2 + 2 = 4', () => {
     expect(suma(2, 2)).toBe(4);
@@ -33,7 +33,7 @@ describe('Revisió de paràmetres', () => {
     expect(suma("", "")).toBe(false);
   });
 
-  test('parámetres que li pasi no siguin text', () => {
+  test('parámetres que rebi no siguin text', () => {
     expect(suma("si", "no")).toBe(false);
   });
 
@@ -41,7 +41,7 @@ describe('Revisió de paràmetres', () => {
     expect(resta("", "")).toBe(false);
   });
 
-  test('parámetres que li pasi no siguin text', () => {
+  test('parámetres que rebi no siguin text', () => {
     expect(resta("si", "no")).toBe(false);
   });
 
@@ -49,7 +49,7 @@ describe('Revisió de paràmetres', () => {
     expect(multiplica("", "")).toBe(false);
   });
 
-  test('parámetres que li pasi no siguin text', () => {
+  test('parámetres que rebi no siguin text', () => {
     expect(multiplica("si", "no")).toBe(false);
   });
 
@@ -57,7 +57,7 @@ describe('Revisió de paràmetres', () => {
     expect(divideix("", "")).toBe(false);
   });
 
-  test('parámetres que li pasi no siguin text', () => {
+  test('parámetres que rebi no siguin text', () => {
     expect(divideix("si", "no")).toBe(false);
   });
 
