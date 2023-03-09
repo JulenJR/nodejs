@@ -1,6 +1,5 @@
 const { retornaDoble, returnDouble } = require("../app/asyncawaits.js");
 
-//---------------------------------------------------------------------------------------------------------------
 //Nivell 2 punt 1
 //Verifica mitjançant tests l'execució de l'exercici Async / Await N2 E1 utilitzant Jest Fake Timers.
 

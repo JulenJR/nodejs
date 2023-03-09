@@ -150,7 +150,7 @@ function decrypt(fileName) {
   const decipher = crypto.createDecipheriv(algorithm, key, iv);
 
   try {
-    let decryptedString = decipher.update(encryptedString, "hex", "utf8");//undefined (?)
+    let decryptedString = decipher.update(encryptedString, "hex", "utf8"); //undefined (?)
     decryptedString += decipher.final("utf8");
 
     let finalFileName = "decrypted" + fileName;

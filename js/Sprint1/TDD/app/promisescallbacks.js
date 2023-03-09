@@ -1,5 +1,6 @@
-//NIVELL 2 punt 1 & 2
-//Crea els tests corresponents per verificar el funcionament de les dues funcions de l'exercici Promises i Callbacks N1 E2.
+//NIVELL 3
+
+const { js } = require("../basededades.json");
 
 let employees = [
   {
@@ -31,9 +32,23 @@ let salaries = [
   },
 ];
 
+/*
 const getEmployee = (id) => {
   return new Promise(function (resolve, reject) {
-    let employee = employees.find((e) => e.id === id);
+    fetch("basededades.json")
+      .then((response) => response.json())
+      .then((employeelist = document.getElementById(id)));
+    employeelist.employees.array.forEach((element) => {
+      if (element.id === id) resolve(element);
+      else reject("id not found");
+    });
+  });
+};
+*/
+
+const getEmployee = (id) => {
+  return new Promise(function (resolve, reject) {
+    let employee = employees.find((s) => s.id === id);
     resolve(employee);
     reject("id not found");
   });
@@ -51,29 +66,11 @@ async function asyncEmployee(id) {
   let empl = await getEmployee(id);
   let sal = await getSalary(id);
 
-  return `n1e1 --->    ${empl.name} te un salari de ${sal.salary}`;
-}
-
-
-//punt 2
-//Crea una nova funció asíncrona que cridi a una altra que retorni una Promise
-//que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
-
-function twoSecs() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("n1e2 --->    Han pasat 2 segons");
-    }, 2000);
-  });
-}
-
-async function resolvePromise() {
-  const output = await twoSecs();
-  console.log(output);
+  return `${empl.name} te un salari de ${sal.salary}`;
 }
 
 module.exports = {
   getEmployee,
   getSalary,
-  asyncEmployee
+  asyncEmployee,
 };

@@ -41,7 +41,7 @@ test("intent d'instanciar la clase -abstracta-", () => {
     edad: { value: "26" },
     altura: { value: "172" },
   };
-  new PersonaAbstract (newAbstract);
+  new PersonaAbstract(newAbstract);
 
- expect(PersonaAbstract).toHaveBeenCalledWith(newAbstract);
+  expect(PersonaAbstract).toHaveBeenCalledWith(newAbstract);
 });

@@ -4,8 +4,10 @@
 const {
   getEmployee,
   getSalary,
-  asyncEmployee
+  asyncEmployee,
 } = require("../app/promisescallbacks.js");
+
+jest.mock("../basededades.json");
 
 describe(`getEmployee (Promises & Callbacks)`, () => {
   test(`nomes accepta valors nomerics`, () => {
