@@ -78,10 +78,10 @@ ENGINE = InnoDB;
 -- Table `optica`.`Vendes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `optica`.`Vendes` (
-  `ID_vendes` INT NULL,
-  `ID_ulleres` INT NULL,
-  `Empleat_ID_empelat` INT NULL,
-  `ID_client` INT NULL,
+  `ID_vendes` INT NOT NULL,
+  `ID_ulleres` INT NOT NULL,
+  `Empleat_ID_empelat` INT NOT NULL,
+  `ID_client` INT NOT NULL,
   `data_venda` DATE NULL,
   PRIMARY KEY (`ID_vendes`),
   INDEX `fk_Vendes_Ulleres1_idx` (`ID_ulleres` ASC) VISIBLE,
@@ -114,9 +114,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `optica`;
-INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (1, 'prov1', 'adrProv1', '1', 1, 1, 'Barcelona', 011001, '1', 111111111, '11111111e', 111111111);
-INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (2, 'prov2', 'adrProv2', '2', 2, 2, 'Fracture', 022002, '2', 222222222, '22222222a', 222222222);
-INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (2, 'prov3', 'adrProv3', '3', 3, 3, 'ciut3', 033003, '3', 333333333, '33333333r', 333333333);
+INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (1, 'prov1', 'adrProv1', '1', 1, 1, 'Barcelona', 011001, 'a', 123456789, '12345678e', 123456789);
+INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (2, 'prov2', 'adrProv2', '2', 2, 2, 'Fracture', 022002, 'b', 222222122, '22222222a', 222222222);
+INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (3, 'prov3', 'adrProv3', '3', 3, 3, 'ciut3', 033003, 'c', 343333333, '33333333r', 333333333);
 
 COMMIT;
 
@@ -126,9 +126,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `optica`;
-INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (1, DEFAULT, 'marca1', 325, 320, 'metalica', 'negre', 'negre', 159);
-INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (2, DEFAULT, 'marca2', 200, 200, 'pasta', 'verd', 'verd', 99);
-INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (3, DEFAULT, 'marca3', 900, 890, 'flotant', 'blau', 'blau', 3750);
+INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (1, 1, 'marca1', 325, 320, 'metalica', 'negre', 'negre', 159);
+INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (2, 2, 'marca2', 200, 200, 'pasta', 'verd', 'verd', 99);
+INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (3, 2, 'marca3', 900, 890, 'flotant', 'blau', 'blau', 3750);
 
 COMMIT;
 
