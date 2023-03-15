@@ -109,14 +109,12 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
--- -----------------------------------------------------
--- Data for table `optica`.`Proveidor`
--- -----------------------------------------------------
 START TRANSACTION;
 USE `optica`;
-INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (1, 'prov1', 'adrProv1', '1', 1, 1, 'Barcelona', 011001, 'a', 123456789, '12345678e', 123456789);
-INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (2, 'prov2', 'adrProv2', '2', 2, 2, 'Fracture', 022002, 'b', 222222122, '22222222a', 222222222);
-INSERT INTO `optica`.`Proveidor` (`ID_proveidor`, `nom`, `adreça`, `numero`, `pis`, `porta`, `ciutat`, `codi_postal`, `pais`, `fax`, `NIF`, `telefon`) VALUES (3, 'prov3', 'adrProv3', '3', 3, 3, 'ciut3', 033003, 'c', 343333333, '33333333r', 333333333);
+INSERT IGNORE INTO `Proveidor` 
+VALUES  (1, 'prov1', 'adrProv1', '1', 1, 1, 'Barcelona', 011001, 'a', 123456789, '12345678e', 123456789),
+		(2, 'prov2', 'adrProv2', '2', 2, 2, 'Fracture', 022002, 'b', 222222122, '22222222a', 222222222),
+		(3, 'prov3', 'adrProv3', '3', 3, 3, 'ciut3', 033003, 'c', 343333333, '33333333r', 333333333);
 
 COMMIT;
 
@@ -126,9 +124,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `optica`;
-INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (1, 1, 'marca1', 325, 320, 'metalica', 'negre', 'negre', 159);
-INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (2, 2, 'marca2', 200, 200, 'pasta', 'verd', 'verd', 99);
-INSERT INTO `optica`.`Ulleres` (`ID_ulleres`, `ID_proveidor`, `marca`, `graduacioEsquerre`, `graduacioDreta`, `muntura`, `colorVidreEsquerre`, `colorVidreDret`, `preu`) VALUES (3, 2, 'marca3', 900, 890, 'flotant', 'blau', 'blau', 3750);
+INSERT IGNORE INTO `Ulleres`
+VALUES 	(1, 1, 'marca1', 325, 320, 'metalica', 'negre', 'negre', 159),
+		(2, 2, 'marca2', 200, 200, 'pasta', 'verd', 'verd', 99),
+		(3, 2, 'marca3', 900, 890, 'flotant', 'blau', 'blau', 3750);
 
 COMMIT;
 
@@ -138,9 +137,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `optica`;
-INSERT INTO `optica`.`Empleat` (`ID_empelat`, `nom`) VALUES (1, 'nom1');
-INSERT INTO `optica`.`Empleat` (`ID_empelat`, `nom`) VALUES (2, 'nom2');
-INSERT INTO `optica`.`Empleat` (`ID_empelat`, `nom`) VALUES (3, 'nom3');
+INSERT IGNORE INTO `Empleat`
+VALUES 	(1, 'nom1'),
+		(2, 'nom2'),
+		(3, 'nom3');
 
 COMMIT;
 
@@ -150,9 +150,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `optica`;
-INSERT INTO `optica`.`Client` (`ID_client`, `adreça`, `telefon`, `correu`, `nom`) VALUES (1, 'adreça del client 1', 111111111, '1@hotmail.com', 'client1');
-INSERT INTO `optica`.`Client` (`ID_client`, `adreça`, `telefon`, `correu`, `nom`) VALUES (2, 'adreça del cleint 2', 222222222, '2@outlook.com', 'client2');
-INSERT INTO `optica`.`Client` (`ID_client`, `adreça`, `telefon`, `correu`, `nom`) VALUES (3, 'adreça cleint 3', 333333333, '3@gmail.es', 'client3');
+INSERT IGNORE INTO `Client`
+VALUES 	(1, 'adreça del client 1', 111111111, '1@hotmail.com', 'client1'),
+		(2, 'adreça del cleint 2', 222222222, '2@outlook.com', 'client2'),
+		(3, 'adreça cleint 3', 333333333, '3@gmail.es', 'client3');
 
 COMMIT;
 
@@ -162,9 +163,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `optica`;
-INSERT INTO `optica`.`Vendes` (`ID_vendes`, `ID_ulleres`, `Empleat_ID_empelat`, `ID_client`, `data_venda`) VALUES (1, 1, 1, 1, '17/02/1988');
-INSERT INTO `optica`.`Vendes` (`ID_vendes`, `ID_ulleres`, `Empleat_ID_empelat`, `ID_client`, `data_venda`) VALUES (2, 2, 2, 2, '03/03/2003');
-INSERT INTO `optica`.`Vendes` (`ID_vendes`, `ID_ulleres`, `Empleat_ID_empelat`, `ID_client`, `data_venda`) VALUES (3, 3, 3, 3, '04/04/1994');
+INSERT IGNORE INTO `Vendes`
+VALUES 	(1, 1, 1, 1, '17/02/1988'),
+		(2, 2, 2, 2, '03/03/2003'),
+		(3, 3, 3, 3, '04/04/1994');
 
 COMMIT;
-
