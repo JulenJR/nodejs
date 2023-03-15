@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `optica`.`Vendes` (
   `ID_ulleres` INT NOT NULL,
   `Empleat_ID_empelat` INT NOT NULL,
   `ID_client` INT NOT NULL,
-  `data_venda` DATE NULL,
+  `data_venda` DATE NOT NULL,
   PRIMARY KEY (`ID_vendes`),
   INDEX `fk_Vendes_Ulleres1_idx` (`ID_ulleres` ASC) VISIBLE,
   INDEX `fk_Vendes_Empleat1_idx` (`Empleat_ID_empelat` ASC) VISIBLE,
