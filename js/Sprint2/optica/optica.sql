@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `optica`.`Vendes` (
   `ID_ulleres` INT NOT NULL,
   `Empleat_ID_empelat` INT NOT NULL,
   `ID_client` INT NOT NULL,
-  `data_venda` DATE NOT NULL,
+  `data_venda` DATE DEFAULT NULL,
   PRIMARY KEY (`ID_vendes`),
   INDEX `fk_Vendes_Ulleres1_idx` (`ID_ulleres` ASC) VISIBLE,
   INDEX `fk_Vendes_Empleat1_idx` (`Empleat_ID_empelat` ASC) VISIBLE,
@@ -166,6 +166,6 @@ USE `optica`;
 INSERT IGNORE INTO `Vendes`
 VALUES 	(1, 1, 1, 1, '1988-02-17'),
 		(2, 2, 2, 2, '2003-03-03'),
-		(3, 3, 3, 3, '1994-04-14');
+		(3, 3, 2, 3, '1994-04-14');
 
 COMMIT;
