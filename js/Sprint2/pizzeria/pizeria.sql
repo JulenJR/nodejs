@@ -150,12 +150,13 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `pizzeria`;
-INSERT INTO `pizzeria`.`cleint` (`ID_client`, `nom`, `cognoms`, `adreça`, `codiPostal`, `localitat`, `provincia`, `telefon`) VALUES (1, 'nom 1', 'cognom 1', 'adreça 1', '011001', 'localitat 1', 'provincia 1', 111111111);
-INSERT INTO `pizzeria`.`cleint` (`ID_client`, `nom`, `cognoms`, `adreça`, `codiPostal`, `localitat`, `provincia`, `telefon`) VALUES (2, 'nom 2', 'cognom 2', 'adreça 2', '022002', 'localitat 2', 'provincia 1', 222222222);
-INSERT INTO `pizzeria`.`cleint` (`ID_client`, `nom`, `cognoms`, `adreça`, `codiPostal`, `localitat`, `provincia`, `telefon`) VALUES (3, 'nom 3', 'cognom 3', 'adreça 3', '033003', 'localitat 3', 'provincia 2', 333333333);
-INSERT INTO `pizzeria`.`cleint` (`ID_client`, `nom`, `cognoms`, `adreça`, `codiPostal`, `localitat`, `provincia`, `telefon`) VALUES (4, 'nom 4', 'cognom 4', 'adreça 4', '044004', 'localitat 4', 'provincia 2', 444444444);
-INSERT INTO `pizzeria`.`cleint` (`ID_client`, `nom`, `cognoms`, `adreça`, `codiPostal`, `localitat`, `provincia`, `telefon`) VALUES (5, 'nom 5', 'cognom 5', 'adreça 5', '055005', 'localitat 5', 'provincia 3', 555555555);
-INSERT INTO `pizzeria`.`cleint` (`ID_client`, `nom`, `cognoms`, `adreça`, `codiPostal`, `localitat`, `provincia`, `telefon`) VALUES (6, 'nom 6', 'cognom 6', 'adreça 6', '066006', 'localitat 6', 'provincia 3', 666666666);
+INSERT INTO `cleint`
+	VALUES 	(1, 'nom 1', 'cognom 1', 'adreça 1', '011001', 'localitat 1', 'provincia 1', 111111111),
+			(2, 'nom 2', 'cognom 2', 'adreça 2', '022002', 'localitat 2', 'provincia 1', 222222222),
+			(3, 'nom 3', 'cognom 3', 'adreça 3', '033003', 'localitat 3', 'provincia 2', 333333333),
+			(4, 'nom 4', 'cognom 4', 'adreça 4', '044004', 'localitat 4', 'provincia 2', 444444444),
+			(5, 'nom 5', 'cognom 5', 'adreça 5', '055005', 'localitat 5', 'provincia 3', 555555555),
+			(6, 'nom 6', 'cognom 6', 'adreça 6', '066006', 'localitat 6', 'provincia 3', 666666666);
 
 COMMIT;
 
@@ -165,10 +166,11 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `pizzeria`;
-INSERT INTO `pizzeria`.`botiga` (`ID_botiga`, `adreça`, `codiPostal`, `localitat`, `provincia`) VALUES (1, 'adreça 1', 011001, 'localitat1', 'provincia1');
-INSERT INTO `pizzeria`.`botiga` (`ID_botiga`, `adreça`, `codiPostal`, `localitat`, `provincia`) VALUES (2, 'adreça 2', 022002, 'localitat2', 'provincia2');
-INSERT INTO `pizzeria`.`botiga` (`ID_botiga`, `adreça`, `codiPostal`, `localitat`, `provincia`) VALUES (3, 'adreça 3', 033003, 'localitat3', 'provincia2');
-INSERT INTO `pizzeria`.`botiga` (`ID_botiga`, `adreça`, `codiPostal`, `localitat`, `provincia`) VALUES (4, 'adreça 4', 044004, 'localitat4', 'provincia3');
+INSERT INTO `botiga`
+	VALUES 	(1, 'adreça 1', 011001, 'localitat1', 'provincia1'),
+			(2, 'adreça 2', 022002, 'localitat2', 'provincia2'),
+			(3, 'adreça 3', 033003, 'localitat3', 'provincia2'),
+			(4, 'adreça 4', 044004, 'localitat4', 'provincia3');
 
 COMMIT;
 
@@ -178,12 +180,13 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `pizzeria`;
-INSERT INTO `pizzeria`.`empleat` (`ID_empleat`, `nom`, `cognoms`, `NIF`, `telefon`, `ID_botiga`) VALUES (1, 'nomEmpleat1', 'cognomEmpleat1', '11111111w', 111111111, 1);
-INSERT INTO `pizzeria`.`empleat` (`ID_empleat`, `nom`, `cognoms`, `NIF`, `telefon`, `ID_botiga`) VALUES (2, 'nomEmpleat2', 'cognomEmpleat2', '22222222r', 222222222, 1);
-INSERT INTO `pizzeria`.`empleat` (`ID_empleat`, `nom`, `cognoms`, `NIF`, `telefon`, `ID_botiga`) VALUES (3, 'nomEmpleat3', 'cognomEmpleat3', '33333333u', 333333333, 2);
-INSERT INTO `pizzeria`.`empleat` (`ID_empleat`, `nom`, `cognoms`, `NIF`, `telefon`, `ID_botiga`) VALUES (4, 'nomEmpleat4', 'cognomEmpleat4', '44444444p', 444444444, 2);
-INSERT INTO `pizzeria`.`empleat` (`ID_empleat`, `nom`, `cognoms`, `NIF`, `telefon`, `ID_botiga`) VALUES (5, 'nomEmpleat5', 'cognomEmpleat5', '55555555e', 555555555, 3);
-INSERT INTO `pizzeria`.`empleat` (`ID_empleat`, `nom`, `cognoms`, `NIF`, `telefon`, `ID_botiga`) VALUES (6, 'nomEmpleat6', 'cognomEmpleat6', '66666666z', 666666666, 3);
+INSERT INTO `empleat`
+	VALUES 	(1, 'nomEmpleat1', 'cognomEmpleat1', '11111111w', 111111111, 1),
+			(2, 'nomEmpleat2', 'cognomEmpleat2', '22222222r', 222222222, 1),
+			(3, 'nomEmpleat3', 'cognomEmpleat3', '33333333u', 333333333, 2),
+			(4, 'nomEmpleat4', 'cognomEmpleat4', '44444444p', 444444444, 2),
+			(5, 'nomEmpleat5', 'cognomEmpleat5', '55555555e', 555555555, 3),
+			(6, 'nomEmpleat6', 'cognomEmpleat6', '66666666z', 666666666, 3);
 
 COMMIT;
 
@@ -193,9 +196,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `pizzeria`;
-INSERT INTO `pizzeria`.`pizzaCategoria` (`ID_pizzaCategoria`, `categoria`) VALUES (1, 'categoria1');
-INSERT INTO `pizzeria`.`pizzaCategoria` (`ID_pizzaCategoria`, `categoria`) VALUES (2, 'categoria2');
-INSERT INTO `pizzeria`.`pizzaCategoria` (`ID_pizzaCategoria`, `categoria`) VALUES (3, 'categiria3');
+INSERT INTO `pizzaCategoria`
+	VALUES 	(1, 'categoria1'),
+			(2, 'categoria2'),
+			(3, 'categiria3');
 
 COMMIT;
 
@@ -205,15 +209,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `pizzeria`;
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (1, 'beguda', 'beguda1', 'descripcio del producte 1', 'img1', 123, 1);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (2, 'pizza', 'pizza1', 'descripcio del producte 2', 'img2', 53, 1);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (3, 'hamburguesa', 'hamburguesa1', 'descripcio del producte 3', 'img3', 12, 1);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (4, 'beguda', 'beguda2', 'descripcio del producte 4', 'img4', 6, 2);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (5, 'pizza', 'pizza2', 'descripcio del producte 5', 'img5', 534, 2);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (6, 'hamburguesa', 'hamburguesa2', 'descripcio del producte 6', 'img6', 1, 2);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (7, 'beguda', 'beguda3', 'descripcio del producte 7', 'img7', 4242, 3);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (8, 'pizza', 'pizza3', 'descripcio del producte 8', 'img8', 555, 3);
-INSERT INTO `pizzeria`.`producte` (`ID_producte`, `producteKind`, `nom`, `descripcio`, `img`, `preu`, `ID_pizzaCategoria`) VALUES (9, 'hamburguesa', 'hamburguesa3', 'descripcio del producte 9', 'img9', 81, 3);
+INSERT INTO `producte` 
+	VALUES	(1, 'beguda', 'beguda1', 'descripcio del producte 1', 'img1', 123, 1),
+			(2, 'pizza', 'pizza1', 'descripcio del producte 2', 'img2', 53, 1),
+			(3, 'hamburguesa', 'hamburguesa1', 'descripcio del producte 3', 'img3', 12, 1),
+			(4, 'beguda', 'beguda2', 'descripcio del producte 4', 'img4', 6, 2),
+			(5, 'pizza', 'pizza2', 'descripcio del producte 5', 'img5', 534, 2),
+			(6, 'hamburguesa', 'hamburguesa2', 'descripcio del producte 6', 'img6', 1, 2),
+			(7, 'beguda', 'beguda3', 'descripcio del producte 7', 'img7', 4242, 3),
+			(8, 'pizza', 'pizza3', 'descripcio del producte 8', 'img8', 555, 3),
+			(9, 'hamburguesa', 'hamburguesa3', 'descripcio del producte 9', 'img9', 81, 3);
 
 COMMIT;
 
@@ -223,16 +228,17 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `pizzeria`;
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (1, '2001-01-21', 'domicili', 1, 33, 1, 1, 1, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (2, '2001-02-22', 'recollida', 2, 200, 1, 2, 1, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (3, '2001-03-23', 'recollida', 1, 21, 2, 1, 1, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (4, '2002-01-21', 'recollida', 4, 1, 3, 1, 1, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (5, '2002-02-22', 'domicili', 5, 55552, 4, 3, 1, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (6, '2003-03-23', 'recollida', 2, 1231, 5, 4, 2, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (7, '2004-01-21', 'recollida', 1, 535, 4, 4, 2, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (8, '2004-02-22', 'domicili', 3, 3333, 1, 3, 2, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (9, '2005-01-21', 'recollida', 1, 6567, 6, 2, 2, DEFAULT);
-INSERT INTO `pizzeria`.`comanda` (`ID_comanda`, `data`, `tipusComanda`, `quantitat`, `preu`, `ID_client`, `ID_botiga`, `ID_empleat`, `ID_producte`) VALUES (10, '2005-02-22', 'domicili', 7, 11, 1, 1, 2, DEFAULT);
+INSERT INTO `comanda`
+	VALUES 	(1, '2001-01-21', 'domicili', 1, 33, 1, 1, 1, 1),
+			(2, '2001-02-22', 'recollida', 2, 200, 1, 2, 1, 2),
+			(3, '2001-03-23', 'recollida', 1, 21, 2, 1, 1, 3),
+			(4, '2002-01-21', 'recollida', 4, 1, 3, 1, 1, 4),
+			(5, '2002-02-22', 'domicili', 5, 55552, 4, 3, 1, 5),
+			(6, '2003-03-23', 'recollida', 2, 1231, 5, 4, 2, 6),
+			(7, '2004-01-21', 'recollida', 1, 535, 4, 4, 2, 7),
+			(8, '2004-02-22', 'domicili', 3, 3333, 1, 3, 2, 8),
+			(9, '2005-01-21', 'recollida', 1, 6567, 6, 2, 2, 9),
+			(10, '2005-02-22', 'domicili', 7, 11, 1, 1, 2, 1);
 
 COMMIT;
 
