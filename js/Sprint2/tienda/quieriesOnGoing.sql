@@ -33,3 +33,18 @@ select p.nombre, p.euros, f.nombre as nombre_fabricante from producto p inner jo
 select distinct f.codigo, f.nombre from fabricante f inner join producto p where f.codigo = p.codigo_fabricante;
 select f.codigo, f.nombre, p.nombre as producto_nombre from fabricante f left join producto p on f.codigo = p.codigo_fabricante;
 select * from fabricante f where f.codigo not in (select distinct producto.codigo_fabricante from producto);
+select * from producto p where p.codigo_fabricante in (select f.codigo from fabricante f where f.nombre = 'Lenovo');
+select p.nombre, p.euros from producto p where p.euros = (select p.euros from producto where p.codigo_fabricante = (select f.codigo from fabricante f where f.nombre = 'Lenovo') order by p.euros desc limit 1);
+select p.nombre from producto p inner join fabricante f where f.nombre = 'Lenovo' order by p.euros desc limit 1;
+select p.nombre from producto p inner join fabricante f where f.nombre = 'Hewlett-Packard' order by p.euros limit 1;
+select * from producto p where p.euros >= (select p.euros from producto p inner join fabricante f on p.codigo_fabricante = f.codigo where f.nombre = 'Lenovo' order by p.euros desc limit 1);
+select * from producto p inner join fabricante f on p.codigo_fabricante = f.codigo where f.nombre = 'Asus' and p.euros > (select sum(p.euros) / count(p.euros) from producto);
+-- -----------
+-- universitat
+-- -----------
+select p.nombre, p.apellido1, p.apellido2, p.fecha_nacimiento from persona p where p.tipo = 'alumno' order by p.fecha_nacimiento desc;
+select p.nombre, p.apellido1, p.apellido2, p.telefono from persona p where p.tipo = 'alumno' and p.telefono is null;
+select p.nombre, p.apellido1, p.apellido2, p.fecha_nacimiento from persona p where p.tipo = 'alumno' and year(p.fecha_nacimiento) = 1999;
+select p.nombre, p.apellido1, p.apellido2, p.nif from persona p where p.tipo = 'profesor' and p.telefono is null and p.nif like '%k';
+select a.nombre from asignatura a where cuatrimestre = 1 and curso = 3 and id_grado = 7;
+select pers.apellido1, pers.apellido2, pers.nombre, departamento.nombre as departamento from persona pers inner join profesor pro on pers.id = pro.id_profesor inner join departamento on pro.id_departamento = departamento.id where pers.tipo = 'profesor' order by pers.apellido1, pers.apellido2, pers.nombre;
