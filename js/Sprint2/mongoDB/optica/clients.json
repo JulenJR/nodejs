@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "64196b0b4057462a4d414f18"
+  },
+  "nom": "nom1",
+  "adreça": "adreça1",
+  "numero": "11",
+  "pis": "1",
+  "porta": "1",
+  "ciutat": "ciutat1",
+  "codi_postal": 11001,
+  "pais": "pais1",
+  "telefon": 111111111,
+  "fax": 111111111,
+  "NIF": "11111111a",
+  "compras": [
+    {
+      "_id": {
+        "$oid": "1111111111111111111111a1"
+      },
+      "dataCompra": {
+        "$date": {
+          "$numberLong": "1674562915000"
+        }
+      },
+      "empleat": "empleat1",
+      "ID_ulleres": {
+        "$oid": "222222222222222222222222"
+      }
+    }
+  ]
+}]

@@ -1,0 +1,83 @@
+[{
+  "_id": {
+    "$oid": "64196dea4057462a4d414f20"
+  },
+  "NIF": "11111111a",
+  "carrer": "carrerProveidor1",
+  "ciutat": "ciutatProveidor1",
+  "codiPostal": 110101,
+  "fax": 111111111,
+  "nom": "nomProveidor1",
+  "numero": "1",
+  "pais": "paisProveidor1",
+  "pis": "1",
+  "porta": "1",
+  "telefon": 111111111,
+  "ulleres": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000000"
+      },
+      "marca": "marcaUlleres0",
+      "graduacioVidreEsquerre": 350,
+      "graduacioVidreDret": 350,
+      "muntura": "metalica",
+      "colorVidreEsquerre": "blau",
+      "colorVidreDret": "blau",
+      "preu": 4500
+    },
+    {
+      "_id": {
+        "$oid": "111111111111111111111111"
+      },
+      "marca": "marcaUlleres1",
+      "graduacioVidreEsquerre": 600,
+      "graduacioVidreDret": 590,
+      "muntura": "flotant",
+      "colorVidreEsquerre": "verd",
+      "colorVidreDret": "verd",
+      "preu": 8250
+    },
+    {
+      "_id": {
+        "$oid": "222222222222222222222222"
+      },
+      "marca": "marcaUlleres2",
+      "graduacioVidreEsquerre": 500,
+      "graduacioVidreDret": 500,
+      "muntura": "pasta",
+      "colorVidreEsquerre": "negre",
+      "colorVidreDret": "negre",
+      "preu": 1000
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "641975944057462a4d414f32"
+  },
+  "NIF": "22222222b",
+  "carrer": "carrerProveidor2",
+  "ciutat": "ciutatProveidor2",
+  "codiPostal": 220202,
+  "fax": 222222222,
+  "nom": "nomProveidor2",
+  "numero": "2",
+  "pais": "paisProveidor2",
+  "pis": "2",
+  "porta": "2",
+  "telefon": 222222222,
+  "ulleres": [
+    {
+      "_id": {
+        "$oid": "000000000000000000000001"
+      },
+      "marca": "marcaUlleres1prov2",
+      "graduacioVidreEsquerre": 1,
+      "graduacioVidreDret": 1,
+      "muntura": "pasta",
+      "colorVidreEsquerre": "vermell",
+      "colorVidreDret": "vermell",
+      "preu": 10000000
+    }
+  ]
+}]
