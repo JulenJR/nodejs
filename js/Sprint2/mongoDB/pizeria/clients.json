@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "641ab978a8cef9b5eb5a1301"
+  },
+  "adreça": "adreçaClient1",
+  "codi_postal": 1010,
+  "cognom": "cognomClient1",
+  "localitat": "Barcelona",
+  "nom": "nomClient1",
+  "numero": "111111221",
+  "provincia": "Barcelona",
+  "comanda": [
+    {
+      "data": {
+        "$date": {
+          "$numberLong": "1523811280000"
+        }
+      },
+      "comandaKind": "domicili",
+      "preu": 355,
+      "comanda_id": {
+        "$oid": "641aba2aa8cef9b5eb5a1304"
+      },
+      "botiga_id": {
+        "$oid": "641ac0daa8cef9b5eb5a131e"
+      },
+      "empelat_id": {
+        "$oid": "641ac6baa8cef9b5eb5a132b"
+      },
+      "comanda_detall": [
+        {
+          "quantitat": 3,
+          "producte_id": {
+            "$oid": "641abcd9a8cef9b5eb5a1313"
+          }
+        },
+        {
+          "quantitat": 27,
+          "producte_id": {
+            "$oid": "641abd19a8cef9b5eb5a1314"
+          }
+        }
+      ]
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "641ab978a7cef9b5eb5a1301"
+  },
+  "adreça": "adreçaClient11",
+  "codi_postal": 1010,
+  "cognom": "cognomClient11",
+  "localitat": "Barcelona",
+  "nom": "nomClient11",
+  "numero": "111112221",
+  "provincia": "Barcelona",
+  "comanda": [
+    {
+      "data": {
+        "$date": {
+          "$numberLong": "1523811280000"
+        }
+      },
+      "comandaKind": "botiga",
+      "preu": 35585,
+      "botiga_id": {
+        "$oid": "641ac1daa8cef9b5eb5a131f"
+      },
+      "comanda_id": {
+        "$oid": "641aba5aa8cef9b5eb5a1304"
+      },
+      "empleat_id": {
+        "$oid": "641ac6dba8cef9b5eb5a132c"
+      },
+      "comanda_detall": [
+        {
+          "quantitat": 1000,
+          "producte_id": {
+            "$oid": "641ac21ea8cef9b5eb5a1320"
+          }
+        }
+      ]
+    }
+  ]
+}]

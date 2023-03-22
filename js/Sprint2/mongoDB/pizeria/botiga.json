@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "000000000000000000000b01"
+  },
+  "adreça": "adreçaBotiga1",
+  "codi_postal": "01010",
+  "localitat": "Barcelona",
+  "provincia": "Barcelona",
+  "empleats": [
+    {
+      "nom": "nomEmpelat11",
+      "cognoms": "cognomEmpelat11",
+      "nif": "11111111b",
+      "telefon": 111111121,
+      "treballadorKind": "cuiner",
+      "empleat_id": {
+        "$oid": "000000000000000000000a06"
+      }
+    },
+    {
+      "nom": "nomEmpleat1",
+      "cognoms": "cognomEmpleat1",
+      "nif": "11111111a",
+      "telefon": 666666661,
+      "treballadorKind": "repartidor",
+      "empleat_id": {
+        "$oid": "000000000000000000000a01"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "000000000000000000000b02"
+  },
+  "adreça": "adreçaBotiga2",
+  "codi_postal": "02020",
+  "localitat": "Barcelona",
+  "provincia": "Barcelona",
+  "empleats": [
+    {
+      "nom": "nomEmpelat2",
+      "cognoms": "cognomEmpelat2",
+      "nif": "22222222a",
+      "telefon": 222222212,
+      "treballadorKind": "cuiner",
+      "empleat_id": {
+        "$oid": "000000000000000000000a02"
+      }
+    },
+    {
+      "nom": "nomEmpleat2",
+      "cognoms": "cognomEmpleat2",
+      "nif": "22222222b",
+      "telefon": 222222112,
+      "treballadorKind": "repartidor",
+      "empleat_id": {
+        "$oid": "000000000000000000000a02"
+      }
+    }
+  ]
+}]

@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "641ac00fa8cef9b5eb5a131b"
+  },
+  "categoria": "pizza",
+  "descripcio": "descripcioBreudelProducte1",
+  "imatge": "/path_Imatge:producte_1",
+  "nom": "producte1",
+  "preu": 3451
+},{
+  "_id": {
+    "$oid": "641ac016a8cef9b5eb5a131c"
+  },
+  "categoria": "hamburguesa",
+  "descripcio": "descripcioProducte2",
+  "imatge": "/path_Imatge:producte_2",
+  "nom": "producte2",
+  "preu": 22222
+},{
+  "_id": {
+    "$oid": "641ac019a8cef9b5eb5a131d"
+  },
+  "categoria": "beguda",
+  "descripcio": "descripcioProducte_3",
+  "imatge": "/path_Imatge:producte_3",
+  "nom": "producte3",
+  "preu": 333333
+}]
