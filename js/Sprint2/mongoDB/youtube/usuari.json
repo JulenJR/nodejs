@@ -88,6 +88,9 @@
         "$date": {
           "$numberLong": "4684313977200000"
         }
+      },
+      "comentari_id": {
+        "$oid": "6422bbf207c7d1e020f4a07e"
       }
     }
   ],
@@ -101,6 +104,9 @@
         "$date": {
           "$numberLong": "4703658332400000"
         }
+      },
+      "comentari_id": {
+        "$oid": "6422bbfc07c7d1e020f4a07f"
       }
     }
   ]
