@@ -1,3 +1,4 @@
+use('optica');
 
 db.clients.drop();
 db.clients.insertMany(
