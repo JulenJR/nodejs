@@ -178,7 +178,7 @@ client.connect(err => {
     // Get the reference to the database
     const db = client.db(dbName);
   
-    // Insert usuari collection
+    // Insert "usuari" collection
     db.collection('usuari').insertMany(usuari, (err, result) => {
       if (err) {
         console.error(err);
@@ -188,7 +188,7 @@ client.connect(err => {
       console.log(`${result.insertedCount} documents were inserted into the 'fruits' collection`);
     });
   
-    // Insert video collection
+    // Insert "video" collection
     db.collection('video').insertMany(video, (err, result) => {
       if (err) {
         console.error(err);
