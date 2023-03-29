@@ -47,7 +47,7 @@ db.suscripcioTargetaDeCredit.insertMany(
 
 db.usuari.drop();
 db.usuari.insertMany(
-    [{
+  [{
     "_id": {
       "$oid": "642294aa07c7d1e020f4a061"
     },
