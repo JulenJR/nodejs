@@ -2,7 +2,7 @@ use ('youtube');
 
 db.usuari.drop();
 db.usuari.insertMany(
-    [{
+  [{
     "_id": {
       "$oid": "64214b41111bbf073dd05507"
     },
@@ -119,7 +119,7 @@ db.usuari.insertMany(
 
 db.video.drop();
 db.video.insertMany(
-    [{
+  [{
     "_id": {
       "$oid": "64214c78111bbf073dd05509"
     },
