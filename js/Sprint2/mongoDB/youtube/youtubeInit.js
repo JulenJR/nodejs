@@ -177,6 +177,9 @@ client.connect(err => {
   
     // Get the reference to the database
     const db = client.db(dbName);
+
+    // Clear the collection before insert values
+    db.collection('usuari').drop();
   
     // Insert "usuari" collection
     db.collection('usuari').insertMany(usuari, (err, result) => {
@@ -187,6 +190,9 @@ client.connect(err => {
   
       console.log(`${result.insertedCount} documents were inserted into the 'fruits' collection`);
     });
+
+    // Clear the collection before insert values
+    db.collection('video').drop();
   
     // Insert "video" collection
     db.collection('video').insertMany(video, (err, result) => {
