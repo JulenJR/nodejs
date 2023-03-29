@@ -1,5 +1,5 @@
 use('spotify');
-//db.cançons.drop();
+db.cançons.drop();
 db.cançons.insertMany(
   [{
     "_id": {
@@ -13,7 +13,7 @@ db.cançons.insertMany(
   }]
 );
 
-//db.suscripcioPayPal.drop();
+db.suscripcioPayPal.drop();
 db.suscripcioPayPal.insertMany(
   [{
   "_id": {
@@ -26,7 +26,7 @@ db.suscripcioPayPal.insertMany(
 }]
 )
 
-//db.suscripcioTargetaDeCredit.drop();
+db.suscripcioTargetaDeCredit.drop();
 db.suscripcioTargetaDeCredit.insertMany(
   [{
     "_id": {
@@ -45,7 +45,7 @@ db.suscripcioTargetaDeCredit.insertMany(
   }]
 );
 
-//db.usuari.drop();
+db.usuari.drop();
 db.usuari.insertMany(
     [{
     "_id": {
