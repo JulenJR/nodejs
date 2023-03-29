@@ -1,20 +1,19 @@
 use('spotify');
-
-db.cançons.drop();
+//db.cançons.drop();
 db.cançons.insertMany(
   [{
-  "_id": {
-    "$oid": "6422a5b707c7d1e020f4a079"
-  },
-  "album": "albumA1",
-  "artista": "artistahhhhhxdidk",
-  "durada": 231,
-  "nomCanço": "canço1",
-  "reproduccions": 3021578
-}]
+    "_id": {
+      "$oid": "6422a5b707c7d1e020f4a079"
+    },
+    "album": "albumA1",
+    "artista": "artistahhhhhxdidk",
+    "durada": 231,
+    "nomCanço": "canço1", 
+    "reproduccions": 3021578
+  }]
 );
 
-db.suscripcioPayPal.drop();
+//db.suscripcioPayPal.drop();
 db.suscripcioPayPal.insertMany(
   [{
   "_id": {
@@ -27,7 +26,7 @@ db.suscripcioPayPal.insertMany(
 }]
 )
 
-db.suscripcioTargetaDeCredit.drop();
+//db.suscripcioTargetaDeCredit.drop();
 db.suscripcioTargetaDeCredit.insertMany(
   [{
     "_id": {
@@ -46,7 +45,7 @@ db.suscripcioTargetaDeCredit.insertMany(
   }]
 );
 
-db.usuari.drop();
+//db.usuari.drop();
 db.usuari.insertMany(
     [{
     "_id": {
