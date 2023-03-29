@@ -1,0 +1,113 @@
+[{
+  "_id": {
+    "$oid": "64214b41111bbf073dd05507"
+  },
+  "dataNaixement": {
+    "$date": {
+      "$numberLong": "5940091234800000"
+    }
+  },
+  "email": "usuari1@gmail.com",
+  "nomUsuari": "usuari1",
+  "password": "contraseñaUser1",
+  "CP": 11010,
+  "pais": "paisUser1",
+  "sexe": "M",
+  "videos_upload_byUser": [
+    {
+      "video_id": {
+        "$oid": "64214c78111bbf073dd05509"
+      }
+    }
+  ],
+  "canal": {
+    "canal_id": {
+      "$oid": "64215038111bbf073dd05511"
+    },
+    "nomCanal": "canaluser1",
+    "descripcio": "descripcio del canal creat per uruasi1",
+    "dataCreacioCanal": {
+      "$date": {
+        "$numberLong": "5308826050800000"
+      }
+    },
+    "suscriptors": 100000001
+  },
+  "dislikes": [
+    {
+      "video_id": {
+        "$oid": "6421518a111bbf073dd05515"
+      },
+      "dataDislike": {
+        "$date": {
+          "$numberLong": "3763198134000000"
+        }
+      }
+    }
+  ],
+  "likes": [
+    {
+      "video_id": {
+        "$oid": "6421513c111bbf073dd05514"
+      },
+      "dataLike": {
+        "$date": {
+          "$numberLong": "3444441231600000"
+        }
+      }
+    }
+  ],
+  "canalsSuscrit": [
+    {
+      "canal_id": {
+        "$oid": "64215212111bbf073dd05518"
+      }
+    }
+  ],
+  "playlists": [
+    {
+      "playlist_id": {
+        "$oid": "64215283111bbf073dd05519"
+      },
+      "nomPlaylist": "playlist1",
+      "dataCreacioPlaylist": {
+        "$date": {
+          "$numberLong": "7840387868400000"
+        }
+      },
+      "status": "publica"
+    }
+  ],
+  "comentarisDislike": [
+    {
+      "video_id": {
+        "$oid": "64215820111bbf073dd05521"
+      },
+      "comentari": "comentari dislike1 by user1 at video (x)",
+      "data": {
+        "$date": {
+          "$numberLong": "4684313977200000"
+        }
+      },
+      "comentari_id": {
+        "$oid": "6422bbf207c7d1e020f4a07e"
+      }
+    }
+  ],
+  "comentarisLike": [
+    {
+      "video_id": {
+        "$oid": "642157c0111bbf073dd05520"
+      },
+      "comentari": "coenmtari c1 by user1 at video (x)",
+      "data": {
+        "$date": {
+          "$numberLong": "4703658332400000"
+        }
+      },
+      "comentari_id": {
+        "$oid": "6422bbfc07c7d1e020f4a07f"
+      }
+    }
+  ]
+}]

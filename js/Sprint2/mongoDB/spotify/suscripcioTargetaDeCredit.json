@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6422a3a907c7d1e020f4a072"
+  },
+  "caducitat": {
+    "$date": {
+      "$numberLong": "292091180400000"
+    }
+  },
+  "numeroTargeta": "481487526457832",
+  "pin": 2525,
+  "usuari_id": {
+    "$oid": "6422a40f07c7d1e020f4a073"
+  }
+}]
