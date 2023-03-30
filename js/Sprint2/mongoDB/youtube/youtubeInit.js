@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = 'mongodb+srv://julenjr:*********@mycluster.2tyy3ze.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://julenjr:JuLeNunodostrescuatro@mycluster.2tyy3ze.mongodb.net/?retryWrites=true&w=majority';
 const dbName = 'youtube';
 
 const usuari = [
@@ -188,7 +188,7 @@ client.connect(err => {
         return;
       }
   
-      console.log(`${result.insertedCount} documents were inserted into the 'fruits' collection`);
+      console.log(`${result.insertedCount} documents were inserted into the 'usuari' collection`);
     });
 
     // Clear the collection before insert values
@@ -201,9 +201,11 @@ client.connect(err => {
         return;
       }
   
-      console.log(`${result.insertedCount} documents were inserted into the 'vegetables' collection`);
+      console.log(`${result.insertedCount} documents were inserted into the 'video' collection`);
     });
   
     // Close the connection to the MongoDB server
     client.close();
   });
+
+  console.log('Script finished');
