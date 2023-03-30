@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = 'mongodb+srv://julenjr:JuLeNunodostrescuatro@mycluster.2tyy3ze.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://julenjr:*********@mycluster.2tyy3ze.mongodb.net/?retryWrites=true&w=majority';
 const dbName = 'youtube';
 
 const usuari = [
