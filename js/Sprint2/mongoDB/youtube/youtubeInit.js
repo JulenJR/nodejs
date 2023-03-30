@@ -131,11 +131,11 @@ client.connect()
         console.error(err);
       });
     })
-    .then(() => {
+  .then(() => {
       // Close the connection to the MongoDB server
       client.close();
       console.log('Script finished');
     })
-    .catch(err => {
-      console.error(err);
-  });
+  .catch(err => {
+    console.error(err);
+});
