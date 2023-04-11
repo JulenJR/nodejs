@@ -10,4 +10,6 @@ marcador.afegirJugador("Jugador_2");
 marcador.afegirPunts("Jugador_1", 25);
 marcador.afegirPunts("Jugador_2", 33);
 
+marcador.treurePunts("Jugador_1", 2);
+
 marcador.mostrarMarcador();
