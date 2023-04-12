@@ -87,7 +87,7 @@ getEmployee(2)
 //nivell 2 exercici 2
 //Crea una altra arrow function getSalary() similar a l'anterior que rebi com a paràmetre un objecte employee i retorni el seu salari.
 
-const getSalary = (id) => {
+const getSalary = (getEmployee(1)) => {
   return new Promise(function (resolve, reject) {
     let salary = salaries.find((s) => s.id === id);
     resolve(salary);

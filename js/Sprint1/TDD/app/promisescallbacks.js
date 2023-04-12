@@ -66,7 +66,9 @@ async function asyncEmployee(id) {
   let empl = await getEmployee(id);
   let sal = await getSalary(id);
 
-  return `${empl.name} te un salari de ${sal.salary}`;
+  let str = `${empl.name} te un salari de ${sal.salary}`;
+
+  return str;
 }
 
 module.exports = {
