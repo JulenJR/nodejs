@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import { MathMiddleware } from "./middlewares";
 import * as fs from "fs";
 
@@ -11,13 +11,13 @@ app.get("/", (req, res) => {
   const { num1, num2 } = JSON.parse(jsonData);
   const mathMiddleware = new MathMiddleware(num1, num2);
 
-  mathMiddleware.square();
-  mathMiddleware.cube();
-  mathMiddleware.divByTwo();
+  mathMiddleware.square(req);
+  mathMiddleware.cube(req);
+  mathMiddleware.divByTwo(req);
 
-  const resultAdd = mathMiddleware.sum();
-  const resultSub = mathMiddleware.sub();
-  const resultMult = mathMiddleware.mult();
+  const resultAdd = mathMiddleware.sum(req);
+  const resultSub = mathMiddleware.sub(req);
+  const resultMult = mathMiddleware.mult(req);
 
   console.log("Result of addition: ", resultAdd);
   console.log("Result of subtraction: ", resultSub);
