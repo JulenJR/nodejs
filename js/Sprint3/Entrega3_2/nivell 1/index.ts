@@ -1,0 +1,31 @@
+import express from "express";
+import { MathMiddleware } from "./middlewares";
+import * as fs from "fs";
+
+const app = express();
+
+app.get("/", (req, res) => {
+  const path = require('path');
+  const jsonData = fs.readFileSync(path.resolve(__dirname, 'data.json'), 'utf-8');
+
+  const { num1, num2 } = JSON.parse(jsonData);
+  const mathMiddleware = new MathMiddleware(num1, num2);
+
+  mathMiddleware.square();
+  mathMiddleware.cube();
+  mathMiddleware.divByTwo();
+
+  const resultAdd = mathMiddleware.sum();
+  const resultSub = mathMiddleware.sub();
+  const resultMult = mathMiddleware.mult();
+
+  console.log("Result of addition: ", resultAdd);
+  console.log("Result of subtraction: ", resultSub);
+  console.log("Result of multiplication: ", resultMult);
+
+  res.sendStatus(200);
+});
+
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});
