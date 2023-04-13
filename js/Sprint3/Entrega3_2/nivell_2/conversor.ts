@@ -7,7 +7,7 @@ function currencyConversion(target: any, key: string, descriptor: PropertyDescri
       const value = args[1];
       const conversionRate = conversions[originalCurrency];
       const convertedValue = value * conversionRate;
-      return originalMethod.call(this, 'EUR', convertedValue);
+      return originalMethod.call(this, args, convertedValue);
     };
     return descriptor;
 }
@@ -15,9 +15,11 @@ function currencyConversion(target: any, key: string, descriptor: PropertyDescri
 class CurrencyConverter {
   @currencyConversion
   convertToEuros(currency: string, value: number) {
-    console.log(`Converted ${currency} ${value} to EUR`);
+    console.log(`Converted ${currency[1]} ${currency[0].slice(0,3)} to ${value} EUR`);
   }
 }
 
-const converter = new CurrencyConverter();
-converter.convertToEuros("USD_EUR", 100);
+const converter1 = new CurrencyConverter();
+converter1.convertToEuros("USD_EUR", 100);
+const converter2 = new CurrencyConverter();
+converter2.convertToEuros("GBP_EUR", 100);
