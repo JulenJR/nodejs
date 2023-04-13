@@ -23,7 +23,6 @@ describe(`getEmployee (Promises & Callbacks)`, () => {
   });
 });
 
-//Nivell 1 punt 3
 //Crea els tests corresponents per verificar el funcionament de les funcions de l'exercici
 //Promises i Callbacks N2 E1 i Promises i Callbacks N2 E2 (getEmployee() i getSalary()).
 
@@ -39,7 +38,6 @@ describe("getSalary amb valor numeric", () => {
   });
 });
 
-//Nivell 1 punt 4
 //Crea els tests corresponents per verificar el funcionament de l'exercici Async / Await N1 E2.
 
 describe(`Tests de la funció asíncrona`, () => {
