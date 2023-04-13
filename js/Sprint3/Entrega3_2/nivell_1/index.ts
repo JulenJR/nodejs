@@ -7,7 +7,6 @@ const app = express();
 app.get("/", (req, res) => {
   const path = require('path');
   const jsonData = fs.readFileSync(path.resolve(__dirname, 'data.json'), 'utf-8');
-
   const { num1, num2 } = JSON.parse(jsonData);
   const mathMiddleware = new MathMiddleware(num1, num2);
 

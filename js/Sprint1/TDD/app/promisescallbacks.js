@@ -32,20 +32,6 @@ let salaries = [
   },
 ];
 
-/*
-const getEmployee = (id) => {
-  return new Promise(function (resolve, reject) {
-    fetch("basededades.json")
-      .then((response) => response.json())
-      .then((employeelist = document.getElementById(id)));
-    employeelist.employees.array.forEach((element) => {
-      if (element.id === id) resolve(element);
-      else reject("id not found");
-    });
-  });
-};
-*/
-
 const getEmployee = (id) => {
   return new Promise(function (resolve, reject) {
     let employee = employees.find((s) => s.id === id);

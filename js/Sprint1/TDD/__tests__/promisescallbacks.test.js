@@ -19,7 +19,7 @@ describe(`getEmployee (Promises & Callbacks)`, () => {
   });
 
   test("nomes accepta valors nomerics", () => {
-    expect(getEmployee("-5")).toBe(false);
+    expect(getEmployee("-5")).toBe(undefined);
   });
 });
 
@@ -27,7 +27,7 @@ describe(`getEmployee (Promises & Callbacks)`, () => {
 //Promises i Callbacks N2 E1 i Promises i Callbacks N2 E2 (getEmployee() i getSalary()).
 
 describe(`Test getEmployee`, () => {
-  test(`retorna un apromise`, () => {
+  test(`retorna una promise`, () => {
     expect(getEmployee(1)).toBeInstanceOf(Promise);
   });
 });
