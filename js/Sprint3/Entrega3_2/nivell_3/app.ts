@@ -1,7 +1,7 @@
 import { Publisher, Subscriber } from './rabbitmq';
 
 async function main() {
-  const queue = 'my-queue';
+  const queue = 'ThisIsATestingQueue';
   const url = 'amqp://localhost';
 
   const publisher = new Publisher(queue, url);
