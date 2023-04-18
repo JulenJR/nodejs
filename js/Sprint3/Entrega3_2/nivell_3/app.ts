@@ -10,7 +10,7 @@ async function main() {
   await subscriber.subscribe();
 
   setInterval(async () => {
-    const message = `test mesage sent every 5 seconds at (${new Date().toISOString()})`;
+    const message = `test message sent every 5 seconds at (${new Date().toISOString()})`;
     await publisher.publish(message);
   }, 5000);
 }

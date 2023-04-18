@@ -35,10 +35,12 @@ export class Subscriber {
     await channel.assertQueue(this.queue);
     console.log(`Waiting for messages in queue "${this.queue}"...`);
     channel.consume(this.queue, (message) => {
-      if (message!= null){
+      if (message === null){
+        console.log("no message detected.")
+      }else {
         console.log(`Received message "${message.content.toString()}" from queue "${this.queue}"`);
         channel.ack(message);
-      }else console.log("no message detected.")
+      }
     });
   }
 }
