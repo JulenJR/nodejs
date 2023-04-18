@@ -12,7 +12,7 @@ async function main() {
   setInterval(async () => {
     const message = `test message sent every 5 seconds at (${new Date().toISOString()})`;
     await publisher.publish(message);
-  }, 3000);
+  }, 5000);
 }
 
 main();
