@@ -33,7 +33,7 @@ export class Subscriber {
     const connection = await amqp.connect(this.url);
     const channel = await connection.createChannel();
     await channel.assertQueue(this.queue);
-    console.log(`Waiting for messages in queue "${this.queue}"...`);
+    console.log(`Waiting for messages in queue "${this.queue}" ...`);
     channel.consume(this.queue, (message) => {
       if (message === null){
         console.log("no message detected.")
