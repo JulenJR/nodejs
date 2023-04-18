@@ -1,4 +1,4 @@
-import amqp from 'amqplib';
+import amqp from "amqplib";
 
 export class Publisher {
   private readonly queue: string;
@@ -35,10 +35,14 @@ export class Subscriber {
     await channel.assertQueue(this.queue);
     console.log(`Waiting for messages in queue "${this.queue}" ...`);
     channel.consume(this.queue, (message) => {
-      if (message === null){
-        console.log("no message detected.")
-      }else {
-        console.log(`Received message "${message.content.toString()}" from queue "${this.queue}"`);
+      if (message === null) {
+        console.log("no message detected.");
+      } else {
+        console.log(
+          `Received message "${message.content.toString()}" from queue "${
+            this.queue
+          }"`
+        );
         channel.ack(message);
       }
     });
