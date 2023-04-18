@@ -16,12 +16,13 @@ test("Given a username when I create a class Person with username then should ca
   new Persona(username);
 
   //Assert / then
-  expect(Persona).toHaveBeenCalledWith(username);
+  expect(Persona).toHaveBeenCalledWith("username");
 });
 
 test("call al metode dirNom de la clase persona", () => {
   const username = "username";
   const p = new Persona(username);
+
 
   const dirNomMock = jest.fn((name) => username);
 
