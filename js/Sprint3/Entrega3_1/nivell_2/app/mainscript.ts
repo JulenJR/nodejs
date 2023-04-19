@@ -1,5 +1,3 @@
-import { Jugador } from './jugador';
-import { Joc } from './joc';
 import { Marcador } from './marcador';
 
 
