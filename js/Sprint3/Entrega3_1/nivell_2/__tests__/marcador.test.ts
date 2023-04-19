@@ -33,14 +33,13 @@ describe('Marcador', () => {
 
     test('treurePunts subtracts points from the specified player', () => {
         const marcador = Marcador.getInstance();
-        marcador.joc.jugadors  = [];
 
-        marcador.afegirJugador('player');
-        marcador.afegirPunts('player', 10);
+        marcador.afegirJugador('player2');
+        marcador.afegirPunts('player2', 10);
     
-        marcador.treurePunts('player', 5);
+        marcador.treurePunts('player2', 5);
     
-        expect(marcador.joc.jugadors[1].puntuacio).toBe(5);
+        expect(marcador.joc.jugadors[2].puntuacio).toBe(5);
       });
 
       test('mostrarMarcador displays the current scoreboard', () => {
