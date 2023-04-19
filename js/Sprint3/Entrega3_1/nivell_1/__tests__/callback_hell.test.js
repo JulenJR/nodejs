@@ -1,19 +1,46 @@
-const fs = require('fs');
-const path = require('path');
-const { reverseText } = require('../callback_hell');
-const { test } = require('node:test');
+const fs = require("fs");
+const path = require("path");
+const {
+  reverseText
+} = require("../app/callback_hell.js"); 
 
-jest.mock('fs');
+jest.mock("fs");
 
-test("reading directory function should manage errors", () =>{
+// Test case for readdir error
+test("readdir should handle error correctly", () => {
+  const mockCallback = jest.fn();
 
-    const mockCallback = jest.fn();
+  
+  fs.readdir.mockImplementation((dir, callback) => {
+    callback(new Error("Folder inaccessible"));
+  });
 
-    fs.readdir.mockImplementation((dir, callback) => {
-        callback(new Error("Folder inaccessible"));
-      });
+  require("../app/callback_hell.js");
 
-    require('../callback_hell');
+  expect(console.log).toBe("Error: Folder inaccessible");
+});
 
-    expect(console.log).toHavebeenCalledWith('Error: Folder inaccessible');
+// Test case for reading and writing files
+test("readFile and writeFile should work correctly", () => {
+  const mockCallback = jest.fn();
+
+  fs.readdir.mockImplementation((dir, callback) => {
+    callback(null, ["testing.txt", "testing2.txt"]);
+  });
+
+  fs.readFile.mockImplementation((file, encoding, callback) => {
+    callback(null, "reversed code outbox");
+  });
+
+  fs.writeFile.mockImplementation((file, data, callback) => {
+    callback(null);
+  });
+
+  require("../app/callback_hell.js");
+
+  expect(fs.writeFile).toHaveBeenCalledWith(
+    path.join(__dirname, "outbox", "testing.txt"),
+    "xobtuo edoc deserver",
+    expect.any(Function)
+  );
 });
