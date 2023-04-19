@@ -27,3 +27,4 @@ export class Topic {
     console.log(`User ${user.getName()} subscribed to topic ${this.name}`);
   }
 }
+module.exports = { Topic };
