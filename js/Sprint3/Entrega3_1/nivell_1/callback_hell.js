@@ -28,3 +28,5 @@ readdir(inbox, (error, files) => {
     });
   });
 });
+
+module.exports = { reverseText };
