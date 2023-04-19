@@ -48,3 +48,5 @@ export class Marcador {
     this.joc.mostrarMarcador();
   }
 }
+
+module.exports = { Marcador };

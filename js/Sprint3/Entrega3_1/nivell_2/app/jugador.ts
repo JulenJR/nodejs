@@ -15,3 +15,5 @@ export class Jugador {
       this.puntuacio -= punts;
     }
   }  
+
+  module.exports = { Jugador };
