@@ -22,7 +22,6 @@ export class Topic {
     this.eventEmitter.emit("message", this.name, user.getName(), message);
   }
 
-  // This method is called when a user is subscribed to this topic
   private onUserSubscribed(user: User): void {
     console.log(`User ${user.getName()} subscribed to topic ${this.name}`);
   }
