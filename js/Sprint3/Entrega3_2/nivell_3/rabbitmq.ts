@@ -39,12 +39,11 @@ export class Subscriber {
         console.log("no message detected.");
       } else {
         console.log(
-          `Received message "${message.content.toString()}" from queue "${
-            this.queue
-          }"`
-        );
+          `Received message "${message.content.toString()}" from queue "${this.queue}"`);
         channel.ack(message);
       }
     });
   }
 }
+
+module.exports = { Publisher, Subscriber };
