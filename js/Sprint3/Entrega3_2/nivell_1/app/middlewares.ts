@@ -1,8 +1,8 @@
 import { Request } from "express";
 
 export class MathMiddleware {
-  private num1: number;
-  private num2: number;
+  public num1: number;
+  public num2: number;
 
   constructor(num1: number, num2: number) {
     this.num1 = num1;
@@ -20,7 +20,7 @@ export class MathMiddleware {
     console.log(`Calculating cube of ${this.num1} and ${this.num2}`);
 
     this.num1 *= this.num1 * this.num1;
-    this.num2 *= this.num2 * this.num2 * this.num2;
+    this.num2 *= this.num2 * this.num2;
   }
 
   public divByTwo(req: Request): void {

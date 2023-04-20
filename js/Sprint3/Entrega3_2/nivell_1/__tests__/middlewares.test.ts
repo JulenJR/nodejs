@@ -1,53 +1,66 @@
-import { Request } from "express";
 import { MathMiddleware } from "../app/middlewares";
 
 describe("MathMiddleware", () => {
-  let mathMiddleware: MathMiddleware;
+  //Test square() method
+  it("should correctly calculate square of num1 and num2", () => {
+    
+    const mathMiddleware = new MathMiddleware(2, 3);
 
-  beforeEach(() => {
-    mathMiddleware = new MathMiddleware(2, 3);
+    mathMiddleware.square({} as any);
+
+    expect(mathMiddleware.num1).toEqual(4);
+    expect(mathMiddleware.num2).toEqual(9);
   });
 
-  afterEach(() => {
-    mathMiddleware = null;
+  //Test cube() method
+  it("should correctly calculate cube of num1 and num2", () => {
+    
+    const mathMiddleware = new MathMiddleware(2, 4);
+
+    mathMiddleware.cube({} as any);
+
+    expect(mathMiddleware.num1).toEqual(8);
+    expect(mathMiddleware.num2).toEqual(64);
   });
 
-  it("should calculate the square of num1 and num2", () => {
-    mathMiddleware.square(null);
+  // Test case 3: Test divByTwo() method
+  it("should correctly divide num1 and num2 by 2", () => {
+   
+    const mathMiddleware = new MathMiddleware(10, 5);
+    
+    mathMiddleware.divByTwo({} as any);
 
-    expect(mathMiddleware["num1"]).toBe(4);
-    expect(mathMiddleware["num2"]).toBe(9);
+    expect(mathMiddleware.num1).toEqual(5);
+    expect(mathMiddleware.num2).toEqual(2.5);
   });
 
-  it("should calculate the cube of num1 and num2", () => {
-    mathMiddleware.cube(null);
+  //Test sum() method
+  it("should correctly calculate sum of num1 and num2", () => {
+    
+    const mathMiddleware = new MathMiddleware(3, 7);
 
-    expect(mathMiddleware["num1"]).toBe(8);
-    expect(mathMiddleware["num2"]).toBe(27);
+    const result = mathMiddleware.sum({} as any);
+
+    expect(result).toEqual(10);
   });
 
-  it("should divide num1 and num2 by 2", () => {
-    mathMiddleware.divByTwo(null);
+  //Test sub() method
+  it("should correctly calculate subtraction of num1 and num2", () => {
+   
+    const mathMiddleware = new MathMiddleware(15, 8);
 
-    expect(mathMiddleware["num1"]).toBe(1);
-    expect(mathMiddleware["num2"]).toBe(1.5);
+    const result = mathMiddleware.sub({} as any);
+
+    expect(result).toEqual(7);
   });
 
-  it("should calculate the sum of num1 and num2", () => {
-    const sum = mathMiddleware.sum(null);
+  //Test mult() method
+  it("should correctly calculate multiplication of num1 and num2", () => {
+    
+    const mathMiddleware = new MathMiddleware(4, 6);
 
-    expect(sum).toBe(5);
-  });
+    const result = mathMiddleware.mult({} as any);
 
-  it("should calculate the subtraction of num1 and num2", () => {
-    const sub = mathMiddleware.sub(null);
-
-    expect(sub).toBe(-1);
-  });
-
-  it("should calculate the multiplication of num1 and num2", () => {
-    const mult = mathMiddleware.mult(null);
-
-    expect(mult).toBe(6);
+    expect(result).toEqual(24);
   });
 });
