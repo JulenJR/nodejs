@@ -47,10 +47,8 @@ describe('Subscriber', () => {
     expect(mockConnection.createChannel).toHaveBeenCalled();
     expect(mockChannel.assertQueue).toHaveBeenCalledWith(queue);
     expect(mockChannel.consume).toHaveBeenCalledWith(queue, expect.any(Function));
-    // Call the message callback with a null message to test "no message detected" case
     mockChannel.consume.mock.calls[0][1](null);
     expect(mockChannel.ack).not.toHaveBeenCalled();
-    // Call the message callback with a non-null message to test receiving and acknowledging a message
     const testMessage = { content: { toString: () => 'test message' } };
     mockChannel.consume.mock.calls[0][1](testMessage);
     expect(mockChannel.ack).toHaveBeenCalledWith(testMessage);
