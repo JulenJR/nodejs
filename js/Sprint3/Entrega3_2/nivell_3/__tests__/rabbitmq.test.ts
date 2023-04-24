@@ -1,3 +1,4 @@
+import { beforeEach } from 'node:test';
 import { Publisher, Subscriber } from '../app/rabbitmq';
 import amqp from 'amqplib';
 
@@ -51,7 +52,6 @@ describe('Subscriber', () => {
     expect(mockChannel.consume).toHaveBeenCalledWith(queue, expect.any(Function));
 
     mockChannel.consume.mock.calls[0][1](null);
-
     expect(mockChannel.ack).not.toHaveBeenCalled();
 
     const testMessage = { content: { toString: () => 'test message' } };

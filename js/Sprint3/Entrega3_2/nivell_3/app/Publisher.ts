@@ -6,9 +6,9 @@ const url = 'amqp://localhost';
 const publisher = new Publisher(queueName, url);
 
 // Send messages to the queue
-const messages = ['end of Publisher', 'sending msg 1 by Publisher', 'msg 2'];
+const messages = ['1', '2', '3'];
 messages.forEach(async (message) => {
   await publisher.publish(message);
 });
 
-console.log(`Sent messages to queue "${queueName}"`);
+console.log(`Sending messages to queue "${queueName}" ...`);
