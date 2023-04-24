@@ -11,8 +11,7 @@ describe("resol el doble del numero en 2 segons", () => {
     expect(returnDouble(2)).resolves.toBe(4);
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 2000);
-    expect(returnDouble("Hola")).rejects.toMatch(
-      "Error, algún nombre no es numèric."
-    );
+
+    expect(returnDouble("Hola")).rejects.toMatch("Error, algún nombre no es numèric.");
   });
 });
