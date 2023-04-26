@@ -3,8 +3,8 @@ const { error } = require("console");
 const { readdirSync, readFileSync, writeFileSync } = require("fs");
 const { join } = require("path");
 
-const inbox = join(__dirname, "inbox");
-const outbox = join(__dirname, "outbox");
+const inbox = join(__dirname, "../inbox");
+const outbox = join(__dirname, "../outbox");
 
 const reverseText = (str) => str.split("").reverse().join("");
 
@@ -21,18 +21,24 @@ function llegirDir(inbox) {
 }
 
 function noHell() {
-  const fitxers = llegirDir(inbox);
+  try {
+    
+    const fitxers = llegirDir(inbox);
+    if ( !fitxers.length ) throw new Error('the folder is empty')
 
-  fitxers.forEach((fitxer) => {
-    try {
+    fitxers.forEach((fitxer) => {
+
       const chain = llegirFitxer(fitxer);
-      escriureFitxer(fitxer, chain);
-      console.log(`${fitxer} was succesfully saved in outbox`);
       
-    } catch (error) {
-      throw new Error (error);
-    }
-  });
+      chain && escriureFitxer(fitxer, chain);
+    })
+
+  } catch ({ message }) {
+
+    throw new Error('MESSAGE ERROR -> ' + message)
+
+  }
+
 }
 
 noHell();
