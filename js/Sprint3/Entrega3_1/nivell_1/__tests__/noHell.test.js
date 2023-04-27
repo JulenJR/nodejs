@@ -15,5 +15,3 @@ jest.mock("fs", () => ({
 test("reverseText should reverse a string correctly", () => {
   expect(reverseText("hello")).toBe("olleh");
 });
-
-// Test for handling inaccessible folder error
