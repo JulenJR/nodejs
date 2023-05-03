@@ -1,35 +1,38 @@
-import * as conversions from '../currency_conversions.json';
+import * as conversions from "../currency_conversions.json";
 
-function currencyConversion(target: any, key: string, descriptor: PropertyDescriptor): PropertyDescriptor {
-    const originalMethod = descriptor.value;
-    descriptor.value = function(...args: any[]) {
-      const originalCurrency = args[0];
-      const value = args[1];
-      const conversionRate = conversions[originalCurrency];
-      const convertedValue = value * conversionRate;
-      return originalMethod.call(this, args, convertedValue);
-    };
-    return descriptor;
+interface CurrencyConverter {
+  convertToEuros(currency: string, value: number): void;
 }
 
-export class CurrencyConverter {
-  @currencyConversion
-  convertToEuros(currency: string, value: number) {
-    let roundValue = Math.round(value *100) / 100;
-    console.log(`Converted ${currency[1]} ${currency[0].slice(0,3)} to ${roundValue} EUR`);
+export class EuroCurrencyConverter implements CurrencyConverter {
+  private conversions: any;
+
+  constructor() {
+    this.conversions = conversions;
+  }
+
+  convertToEuros(currency: string, value: number): void {
+    const conversionKey = `${currency.split("_")[0]}_EUR`;
+    const conversionRate = this.conversions[conversionKey];
+    const convertedValue = value * conversionRate;
+
+    const roundedValue = Math.round(convertedValue * 100) / 100;
+    console.log(
+      `Converted ${value} ${currency.split("_")[0]} to ${roundedValue} EUR`
+    );
   }
 }
 
-const converter1 = new CurrencyConverter();
+const converter1 = new EuroCurrencyConverter();
 converter1.convertToEuros("USD_EUR", 100);
 
-const converter2 = new CurrencyConverter();
+const converter2 = new EuroCurrencyConverter();
 converter2.convertToEuros("GBP_EUR", 75);
 
-const converter3 = new CurrencyConverter();
+const converter3 = new EuroCurrencyConverter();
 converter3.convertToEuros("CHF_EUR", 50);
 
-const converter4 = new CurrencyConverter();
-converter4.convertToEuros("JPY_EUR",2500);
+const converter4 = new EuroCurrencyConverter();
+converter4.convertToEuros("JPY_EUR", 2500);
 
-module.exports = { CurrencyConverter };
+module.exports = { EuroCurrencyConverter };
