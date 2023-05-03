@@ -3,13 +3,11 @@ import { Joc } from './joc';
 
 export class Marcador {
   private static instance: Marcador;
-
   private constructor() {
+    
     if (Marcador.instance) {
       return Marcador.instance;
     }
-
-    this.joc = new Joc();
     Marcador.instance = this;
   }
 
@@ -17,8 +15,9 @@ export class Marcador {
     return Marcador.instance ?? new Marcador();
   }
 
-  joc: Joc = new Joc();
-
+  joc: Joc = new Joc("testing String GAME NAME");
+  //add new games
+  
   afegirJugador(nom: string): void {
     const jugador = new Jugador(nom);
     this.joc.afegirJugador(jugador);

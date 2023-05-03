@@ -1,11 +1,14 @@
 import { Jugador } from './jugador';
 
 export class Joc {
-  constructor() {
+  constructor(name : string) {
     this.jugadors = [];
+    this.name = name;
   }
 
+  name: string;
   jugadors: Jugador[];
+  
 
   afegirJugador(jugador: Jugador) {
     this.jugadors.push(jugador);
@@ -15,6 +18,8 @@ export class Joc {
     let guanyador: Jugador | null = null;
     let maxPuntuacio = -Infinity;
 
+    console.log(`-----    ${this.name}    ----- `)
+
     for (const jugador of this.jugadors) {
       console.log(`${jugador.nom}: ${jugador.puntuacio} punts`);
 
@@ -23,7 +28,7 @@ export class Joc {
         maxPuntuacio = jugador.puntuacio;
       }
     }
-    console.log(`Guanyador/a: ${guanyador?.nom}`);
+    console.log(`Guanyador/a: ${guanyador?.nom} amb ${guanyador?.puntuacio} punts`);
   }
 }
 
