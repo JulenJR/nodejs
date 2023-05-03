@@ -1,29 +1,28 @@
-import { EventEmitter } from "events";
 import { User } from "./user";
+import { EventEmitter } from "events";
 
-export class Topic {
-  private name: string;
-  private subscribers: User[];
-  private eventEmitter: EventEmitter;
+export class Topic extends EventEmitter {
+  private _name: string;
+  private _users: User[];
 
-  constructor(name: string) {
-    this.name = name;
-    this.subscribers = [];
-    this.eventEmitter = new EventEmitter();
+  constructor(name: string, users: User[]) {
+    super();
+    this._name = name;
+    this._users = users;
   }
 
-  public subscribe(user: User): void {
-    this.subscribers.push(user);
-    this.onUserSubscribed(user);
+  public addMessage(message: string, user: User) {
+    console.log(`[${this._name}] ${user.name}: ${message}`);
+    this.emit("message", message, user);
   }
 
-  public addMessage(user: User, message: string): void {
-    console.log(`${user.getName()} posted message on topic '${this.name}': ${message}`);
-    this.eventEmitter.emit("message", this.name, user.getName(), message);
-  }
-
-  private onUserSubscribed(user: User): void {
-    console.log(`User ${user.getName()} subscribed to topic ${this.name}`);
+  public subscribe(user: User) {
+    this._users.push(user);
+    console.log(`[${this._name}] ${user.name} subscribed`);
+    this.on("message", (message, author) => {
+      if (this._users.includes(author)) {
+        console.log(`[${this._name}] ${user.name} received: ${message}`);
+      }
+    });
   }
 }
-module.exports = { Topic };
