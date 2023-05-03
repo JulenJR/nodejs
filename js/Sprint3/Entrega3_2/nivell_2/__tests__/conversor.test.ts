@@ -1,10 +1,10 @@
-import { CurrencyConversionDecorator } from '../app/conversor';
+import { EuroCurrencyConverter } from '../app/conversor';
 
 describe('CurrencyConverter', () => {
-  let currencyConverter: CurrencyConversionDecorator;
+  let currencyConverter: EuroCurrencyConverter;
 
   beforeEach(() => {
-    currencyConverter = new CurrencyConversionDecorator();
+    currencyConverter = new EuroCurrencyConverter();
   });
 
 
