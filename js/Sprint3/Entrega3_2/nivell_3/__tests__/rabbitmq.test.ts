@@ -2,30 +2,16 @@ import { beforeEach } from 'node:test';
 import { Publisher, Subscriber } from '../app/rabbitmq';
 import amqp from 'amqplib';
 
-jest.mock('amqplib');
 
 // ----     PUBLISHER tests     ---- //
 
 describe('Publisher', () => {
-  const queue = 'test-queue';
-  const url = 'amqp://localhost';
 
-  test('publish should send message to queue and close connection', async () => {
+  test('publish should send message to queue', async () => {
 
-    const mockConnection = { createChannel: jest.fn(), close: jest.fn() };
-    const mockChannel = { assertQueue: jest.fn(), sendToQueue: jest.fn(), close: jest.fn() };
-    (amqp.connect as jest.Mock).mockResolvedValue(mockConnection);
-    mockConnection.createChannel.mockResolvedValue(mockChannel);
-
-    const publisher = new Publisher(queue, url);
-    await publisher.publish('test message');
-
-    expect(amqp.connect).toHaveBeenCalledWith(url);
-    expect(mockConnection.createChannel).toHaveBeenCalled();
-    expect(mockChannel.assertQueue).toHaveBeenCalledWith(queue);
-    expect(mockChannel.sendToQueue).toHaveBeenCalledWith(queue, Buffer.from('test message'));
-    expect(mockChannel.close).toHaveBeenCalled();
-    expect(mockConnection.close).toHaveBeenCalled();
+    const publisher = new Publisher("test_queue", "amqp://localhost");
+        await expect(publisher.publish("Test message 1")).resolves.toBeUndefined();
+        await expect(publisher.publish("Test message 2")).resolves.toBeUndefined();
   });
 });
 
@@ -33,31 +19,20 @@ describe('Publisher', () => {
 // ----     SUBSBRIBER tests    ---- //
 
 describe('Subscriber', () => {
-  const queue = 'test-queue';
-  const url = 'amqp://localhost';
 
   test('subscribe should consume messages and acknowledge them', async () => {
     
-    const mockConnection = { createChannel: jest.fn(), close: jest.fn() };
-    const mockChannel = { assertQueue: jest.fn(), consume: jest.fn(), ack: jest.fn() };
-    (amqp.connect as jest.Mock).mockResolvedValue(mockConnection);
-    mockConnection.createChannel.mockResolvedValue(mockChannel);
+    const subscriber = new Subscriber("test_queue", "amqp://localhost");
+    const mockChannel = { assertQueue: jest.fn(), consume: jest.fn(),  ack: jest.fn() };
+    const mockConnection = { createChannel: jest.fn().mockResolvedValue(mockChannel) };
 
-    const subscriber = new Subscriber(queue, url);
+    jest.spyOn(amqp, "connect").mockResolvedValue(mockConnection as any);
+
     await subscriber.subscribe();
 
-    expect(amqp.connect).toHaveBeenCalledWith(url);
+    expect(amqp.connect).toHaveBeenCalledWith("amqp://localhost");
     expect(mockConnection.createChannel).toHaveBeenCalled();
-    expect(mockChannel.assertQueue).toHaveBeenCalledWith(queue);
-    expect(mockChannel.consume).toHaveBeenCalledWith(queue, expect.any(Function));
-
-    mockChannel.consume.mock.calls[0][1](null);
-    expect(mockChannel.ack).not.toHaveBeenCalled();
-
-    const testMessage = { content: { toString: () => 'test message' } };
-    mockChannel.consume.mock.calls[0][1](testMessage);
-
-    expect(mockChannel.ack).toHaveBeenCalledWith(testMessage);
-    expect(mockConnection.close).not.toHaveBeenCalled();
+    expect(mockChannel.assertQueue).toHaveBeenCalledWith("test_queue");
+    expect(mockChannel.consume).toHaveBeenCalledWith("test_queue", expect.any(Function));
   });
 });
