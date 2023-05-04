@@ -42,3 +42,5 @@ function noHell() {
 }
 
 noHell();
+
+module.exports = { reverseText, llegirDir, llegirFitxer, escriureFitxer };
