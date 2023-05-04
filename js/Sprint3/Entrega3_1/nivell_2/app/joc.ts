@@ -14,25 +14,18 @@ export class Joc {
     const jugador = new Jugador(nom);
     this.jugadors.push(jugador);
   }
-
-  afegirPunts(nom: string, punts: number) {
+  getPlayer(nom: string) {
     const jugador = this.jugadors.find((jugador) => jugador.nom === nom);
 
     if (!jugador) {
       throw new Error(`Jugador/a ${nom} no trobat/da`);
     }
-
-    jugador.afegirPunts(punts);
+    return jugador
   }
 
-  treurePunts(nom: string, punts: number) {
-    const jugador = this.jugadors.find((jugador) => jugador.nom === nom);
-
-    if (!jugador) {
-      throw new Error(`Jugador/a ${nom} no trobat/da`);
-    }
-
-    jugador.treurePunts(punts);
+  updatePlayers(playerUpdated : Jugador){
+    this.jugadors = this.jugadors.filter(player => player.nom !== playerUpdated.nom);
+    this.jugadors.push(playerUpdated); 
   }
 
   mostrarMarcador() {
@@ -50,6 +43,7 @@ export class Joc {
       }
     }
     console.log(`Guanyador/a: ${guanyador?.nom} amb ${guanyador?.puntuacio} punts`);
+    
   }
 }
 

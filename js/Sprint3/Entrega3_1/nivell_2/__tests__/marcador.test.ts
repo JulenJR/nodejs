@@ -28,9 +28,9 @@ describe("Marcador", () => {
     marcador.addGame("Game 1");
     marcador.addGame("Game 2");
     marcador.getGame("Game 1")?.afegirJugador("Player 1");
-    marcador.getGame("Game 1")?.afegirPunts("Player 1", 10);
+    marcador.getGame("Game 1")?.getPlayer("Player 1").afegirPunts(10);
     marcador.getGame("Game 2")?.afegirJugador("Player 2");
-    marcador.getGame("Game 2")?.afegirPunts("Player 2", 20);
+    marcador.getGame("Game 2")?.getPlayer("Player 2").afegirPunts(20);
 
     const consoleSpy = jest.spyOn(console, "log");
     marcador.mostrarMarcador();
