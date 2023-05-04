@@ -1,59 +1,45 @@
-import { Joc } from '../app/joc';
-import { Jugador } from '../app/jugador';
-import { Marcador } from '../app/marcador';
+import { Joc } from "../app/joc";
+import { Jugador } from "../app/jugador";
+import { Marcador } from "../app/marcador";
 
-describe('Marcador', () => {
-
-    // let marcador: Marcador;
-
-    // beforeEach(() => {
-    //     marcador = Marcador.getInstance();
-    // });
-
-    // afterEach(() => {
-    //     marcador.joc.jugadors = [];
-    // });
-
-    test('afegirJugador adds a new player to the game', () => {
+describe("Marcador", () => {
+  test("addGame adds a new game to games", () => {
     const marcador = Marcador.getInstance();
 
-    marcador.afegirJugador('player1');
+    marcador.addGame("Game 1");
 
-    expect(marcador.joc.jugadors.length).toBe(1);
-    });
+    expect(marcador.games.length).toBe(1);
+    expect(marcador.games[0].name).toBe("Game 1");
+  });
 
-    test('afegirPunts adds points to the specified player', () => {
-        const marcador = Marcador.getInstance();
+  test('getGames returns the correct "Joc" object', () => {
+    const marcador = Marcador.getInstance();
 
-        marcador.afegirJugador('player');
-        marcador.afegirPunts('player', 10);
+    marcador.addGame("Game 1");
+    const game = marcador.getGame("Game 1");
 
-        expect(marcador.joc.jugadors[1].puntuacio).toBe(10);
-    });
+    expect(game).toBeDefined();
+    expect(game?.name).toBe("Game 1");
+  });
 
-    test('treurePunts subtracts points from the specified player', () => {
-        const marcador = Marcador.getInstance();
+  test("Tests that mostrarMarcador displays the correct scoreboard for each game in the games array.", () => {
+    const marcador = Marcador.getInstance();
 
-        marcador.afegirJugador('player2');
-        marcador.afegirPunts('player2', 10);
-    
-        marcador.treurePunts('player2', 5);
-    
-        expect(marcador.joc.jugadors[2].puntuacio).toBe(5);
-      });
+    marcador.addGame("Game 1");
+    marcador.addGame("Game 2");
+    marcador.getGame("Game 1")?.afegirJugador("Player 1");
+    marcador.getGame("Game 1")?.afegirPunts("Player 1", 10);
+    marcador.getGame("Game 2")?.afegirJugador("Player 2");
+    marcador.getGame("Game 2")?.afegirPunts("Player 2", 20);
 
-      test('mostrarMarcador displays the current scoreboard', () => {
-        const marcador = Marcador.getInstance();
-        marcador.joc.jugadors  = [];
-        const spy = jest.spyOn(console, 'log').mockImplementation();
-    
-        marcador.afegirJugador('player');
-        marcador.afegirPunts('player', 10);
-    
-        marcador.mostrarMarcador();
-    
-        expect(spy).toHaveBeenCalledWith('player: 10 punts');
-    
-        spy.mockRestore();
-      });
+    const consoleSpy = jest.spyOn(console, "log");
+    marcador.mostrarMarcador();
+
+    expect(consoleSpy).toHaveBeenCalledWith("-----    Game 1    ----- ");
+    expect(consoleSpy).toHaveBeenCalledWith("Player 1: 10 punts");
+    expect(consoleSpy).toHaveBeenCalledWith("Guanyador/a: Player 1 amb 10 punts");
+    expect(consoleSpy).toHaveBeenCalledWith("-----    Game 2    ----- ");
+    expect(consoleSpy).toHaveBeenCalledWith("Player 2: 20 punts");
+    expect(consoleSpy).toHaveBeenCalledWith("Guanyador/a: Player 2 amb 20 punts");
+  });
 });

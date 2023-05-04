@@ -1,4 +1,3 @@
-import { Jugador } from './jugador';
 import { Joc } from './joc';
 
 export class Marcador {
@@ -17,16 +16,21 @@ export class Marcador {
     return Marcador.instance ?? new Marcador();
   }
 
-
   addGame(name : string){
     const game = new Joc(name);
     this.games.push(game);
   }
 
-  joc: Joc = new Joc("testing String GAME NAME");
-  joc2: Joc = new Joc("another game");
-  //add new games
-  
+  getGame(name : string){
+    const game = this.games.find((game) => game.name === name);
+    return game;
+  }
+
+  mostrarMarcador(){
+    this.games.forEach(game => {
+        game.mostrarMarcador();
+    });
+  }
 }
 
 module.exports = { Marcador };
