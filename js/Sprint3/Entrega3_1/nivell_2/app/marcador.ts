@@ -1,13 +1,10 @@
 import { Joc } from './joc';
 
 export class Marcador {
+
   private static instance: Marcador;
   private constructor() {
     this.games = [];
-    if (Marcador.instance) {
-      return Marcador.instance;
-    }
-    Marcador.instance = this;
   }
 
   games : Joc[];
