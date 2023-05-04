@@ -10,8 +10,29 @@ export class Joc {
   jugadors: Jugador[];
   
 
-  afegirJugador(jugador: Jugador) {
+  afegirJugador(nom: string): void {
+    const jugador = new Jugador(nom);
     this.jugadors.push(jugador);
+  }
+
+  afegirPunts(nom: string, punts: number) {
+    const jugador = this.jugadors.find((jugador) => jugador.nom === nom);
+
+    if (!jugador) {
+      throw new Error(`Jugador/a ${nom} no trobat/da`);
+    }
+
+    jugador.afegirPunts(punts);
+  }
+
+  treurePunts(nom: string, punts: number) {
+    const jugador = this.jugadors.find((jugador) => jugador.nom === nom);
+
+    if (!jugador) {
+      throw new Error(`Jugador/a ${nom} no trobat/da`);
+    }
+
+    jugador.treurePunts(punts);
   }
 
   mostrarMarcador() {
