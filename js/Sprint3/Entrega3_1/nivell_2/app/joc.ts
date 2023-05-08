@@ -20,7 +20,7 @@ export class Joc {
     if (!jugador) {
       throw new Error(`Jugador/a ${nom} no trobat/da`);
     }
-    return jugador
+    return jugador;
   }
 
   updatePlayers(playerUpdated : Jugador){
