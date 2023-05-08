@@ -43,7 +43,6 @@ export class Joc {
       }
     }
     console.log(`Guanyador/a: ${guanyador?.nom} amb ${guanyador?.puntuacio} punts`);
-    
   }
 }
 
