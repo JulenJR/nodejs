@@ -13,7 +13,7 @@ describe("Topic", () => {
   });
 
   describe("addMessage", () => {
-    
+
     test("should emit a message event with the message and user", () => {
       const message = "this is a test message";
       const spy = jest.spyOn(topic, "emit");
