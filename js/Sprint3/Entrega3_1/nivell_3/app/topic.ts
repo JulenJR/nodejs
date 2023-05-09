@@ -2,26 +2,26 @@ import { User } from "./user";
 import { EventEmitter } from "events";
 
 export class Topic extends EventEmitter {
-  private _name: string;
-  private _users: User[];
+  private name: string;
+  private users: User[];
 
   constructor(name: string, users: User[]) {
     super();
-    this._name = name;
-    this._users = users;
+    this.name = name;
+    this.users = users;
   }
 
   public addMessage(message: string, user: User) {
-    console.log(`[${this._name}] ${user.name}: ${message}`);
+    console.log(`[${this.name}] ${user.name}: ${message}`);
     this.emit("message", message, user);
   }
 
   public subscribe(user: User) {
-    this._users.push(user);
-    console.log(`[${this._name}] ${user.name} subscribed`);
+    this.users.push(user);
+    console.log(`[${this.name}] ${user.name} subscribed`);
     this.on("message", (message, author) => {
-      if (this._users.includes(author)) {
-        console.log(`[${this._name}] ${user.name} received: ${message}`);
+      if (this.users.includes(author)) {
+        console.log(`[${this.name}] ${user.name} received: ${message}`);
       }
     });
   }
