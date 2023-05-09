@@ -29,3 +29,5 @@ export class Topic extends EventEmitter {
     });
   }
 }
+
+module.exports = { Topic };

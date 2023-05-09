@@ -1,28 +1,48 @@
-import { Topic } from "../app/topic";
 import { User } from "../app/user";
-import { EventEmitter } from "events";
+import { Topic } from "../app/topic";
 
 describe("Topic", () => {
   let topic: Topic;
-  let users : User[];
+  let user1: User;
+  let user2: User;
 
   beforeEach(() => {
-    topic = new Topic("Test Topic", users);
+    user1 = new User("user1");
+    user2 = new User("user2");
+    topic = new Topic("Test", [user1, user2]);
   });
 
-  //testing if a new user is added to subscribers
-  test("should subscribe a user", () => {
-    const user = new User("Test User");
-    topic.subscribe(user);
-    expect(topic).toContain(user);
+  describe("addMessage", () => {
+    
+    test("should emit a message event with the message and user", () => {
+      const message = "this is a test message";
+      const spy = jest.spyOn(topic, "emit");
+
+      topic.addMessage(message, user1);
+
+      expect(spy).toHaveBeenCalledWith("message", message, user1);
+    });
   });
 
-  //be sure of a new message is emited by a user
-  test("should add a message and emit event", () => {
-    const user = new User("Test User");
-    const message = "Test Message";
-    const mockEmit = jest.spyOn(EventEmitter.prototype, "emit");
-    topic.addMessage(message, user);
-    expect(mockEmit).toHaveBeenCalledWith("message", topic["name"], user.name, message);
+  describe("subscriber", () => {
+
+    test("should add the user to the list of subscribers", () => {
+      const user3 = new User("Charlie");
+
+      topic.subscribe(user3);
+
+      expect(topic["users"]).toContain(user3);
+    });
+
+    test("should receive messages sent by other subscribers", () => {
+      const message = "this is a test message";
+      const spy = jest.spyOn(console, "log");
+
+      topic.subscribe(user1);
+      topic.addMessage(message, user2);
+
+      expect(spy).toHaveBeenCalledWith(`[Test] user1 received: ${message}`);
+      expect(spy).not.toHaveBeenCalledWith(`[Test] user1 sent: ${message}`);
+    });
   });
 });
