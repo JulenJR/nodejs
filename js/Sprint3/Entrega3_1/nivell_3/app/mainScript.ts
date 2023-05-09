@@ -14,5 +14,5 @@ topic2.subscribe(users[1]);
 topic2.subscribe(users[2]);
 
 topic1.addMessage("will send a mss ", users[0]);
-topic2.addMessage("not another msss", users[1]);
+topic2.addMessage("not another mss", users[1]);
 topic2.addMessage("Deffinetly not another mss", users[2]);
